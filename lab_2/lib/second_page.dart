@@ -7,6 +7,7 @@ class MySecondPage extends StatefulWidget {
 
 class _MySecondPageState extends State<MySecondPage> {
   bool _enabled = false;
+  bool _firstTimeEnabled = true;
   int _timesClicked = 0;
   String _msg1 = '';
   String _msg2 = '';
@@ -32,6 +33,7 @@ class _MySecondPageState extends State<MySecondPage> {
         return () {
           setState(() {
             _timesClicked = 0;
+            _firstTimeEnabled = true;
             _msg1 = 'Click Me';
             print('Reset Pressed');
           });
@@ -58,8 +60,14 @@ class _MySecondPageState extends State<MySecondPage> {
                       setState(() {
                         _enabled = value;
                         if (_enabled) {
-                          _msg1 = 'Click Me';
-                          _msg2 = 'Reset';
+                          if (_firstTimeEnabled) {
+                            _msg1 = 'Click Me';
+                            _msg2 = 'Reset';
+                            _firstTimeEnabled = false;
+                          } else {
+                            _msg1 = 'Clicked $_timesClicked';
+                            _msg2 = 'Reset';
+                          }
                           print('_enabled is true');
                         } else {
                           _msg1 = '';
