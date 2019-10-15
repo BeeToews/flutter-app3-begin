@@ -2,6 +2,9 @@
 	"folders": [
 		{
 			"path": "."
+		},
+		{
+			"path": "C:\\Users\\RobbinL\\Downloads\\9781789616033_Code\\Real-World-Projects-with-Flutter-master\\src\\section3\\section3.2\\coffee_store_app\\assets"
 		}
 	],
 	"settings": {}

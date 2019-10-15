@@ -1,22 +1,18 @@
 import 'package:flutter/material.dart';
-import 'first_page.dart';
-import 'second_page.dart';
+import 'package:coffee_store_app/widget/StoreHomePage.dart';
 
-void main() {
-  runApp(MyApp());
-}
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData.dark().copyWith(
-        primaryColor: Color(0xFF0B1034),
-        // the 0xFF is the transparency, then 0B Red, 10 Green, 34 Blue
-        scaffoldBackgroundColor: Color(0xFF0B1034),
+      title: 'Coffee Store App',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
       ),
-      //home: MyFirstPage(),
-      home: MySecondPage(),
+      home: StoreHomePage(title: 'Store Home'),
     );
   }
 }
+
