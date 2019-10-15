@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:coffee_store_app/model/DrinkType.dart';
+import 'package:lab_3/model/DrinkType.dart';
 import 'package:transparent_image/transparent_image.dart';
 
 List<DrinkType> mainTypes = <DrinkType>[

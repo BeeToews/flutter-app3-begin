@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:coffee_store_app/widget/DrinksCard.dart';
+import 'package:lab_3/widget/DrinksCard.dart';
 import 'package:flutter/material.dart';
 
 class DrinksCarousel extends StatefulWidget {
