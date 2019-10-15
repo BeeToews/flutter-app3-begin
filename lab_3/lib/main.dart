@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:coffee_store_app/widget/StoreHomePage.dart';
+import 'package:coffee_store_app/widget/tabbed_page_demo_one.dart';
+import 'package:coffee_store_app/widget/tabbed_page_demo_two.dart';
 
 void main() => runApp(MyApp());
 
@@ -11,8 +13,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: StoreHomePage(title: 'Store Home'),
+      //home: MyFirstTabbedPage(),
+      home: AppBarBottomSample(),
+      //home: StoreHomePage(title: 'Store Home'),
     );
   }
 }
-
