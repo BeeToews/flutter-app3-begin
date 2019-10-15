@@ -1,5 +1,5 @@
-import 'package:lab_3/widget/DrinksCarousel.dart';
-import 'package:lab_3/widget/DrinksList.dart';
+import 'package:coffee_store_app/widget/DrinksCarousel.dart';
+import 'package:coffee_store_app/widget/DrinksList.dart';
 import 'package:flutter/material.dart';
 
 class StoreHomePage extends StatelessWidget {

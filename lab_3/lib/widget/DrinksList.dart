@@ -1,4 +1,4 @@
-import 'package:lab_3/widget/DrinksCard.dart';
+import 'package:coffee_store_app/widget/DrinksCard.dart';
 import 'package:flutter/material.dart';
 
 class DrinksList extends StatelessWidget {

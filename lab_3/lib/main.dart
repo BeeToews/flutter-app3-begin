@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:lab_3/widget/StoreHomePage.dart';
+import 'package:coffee_store_app/widget/StoreHomePage.dart';
 
 void main() => runApp(MyApp());
 
