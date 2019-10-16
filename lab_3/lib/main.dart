@@ -5,21 +5,10 @@ import 'package:coffee_store_app/widget/tabbed_page_demo_2.dart';
 import 'package:coffee_store_app/widget/tabbed_page_demo_3.dart';
 import 'package:coffee_store_app/widget/scoped_model_demo_1.dart';
 
-void main() => runApp(MyApp());
+//void main() => runApp(MyApp1());
+//void main() => runApp(MyApp2());
+//void main() => runApp(MyApp3());
+//void main() => runApp(MyApp4(model: CounterModel()));
+void main() => runApp(MyAppLab3());
 
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Coffee Store App',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      //home: MyFirstTabbedPage(),
-      //home: MySecondTabbedPage(),
-      //home: MyThirdTabbedPage(),
-      //home: MyFirstScopedModelPage(),
-      home: StoreHomePage(title: 'Store Home'),
-    );
-  }
-}
+

@@ -4,6 +4,20 @@ import 'package:coffee_store_app/model/DrinksListModel.dart';
 import 'package:scoped_model/scoped_model.dart';
 import 'package:flutter/material.dart';
 
+
+class MyAppLab3 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Lab3 App',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: StoreHomePage(title: 'Store Home'),
+    );
+  }
+}
+
 class StoreHomePage extends StatelessWidget {
 
   final String title;

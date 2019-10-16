@@ -1,5 +1,20 @@
 import 'package:flutter/material.dart';
 
+
+class MyApp2 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Tabbed Demo 2',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: MySecondTabbedPage(),
+    );
+  }
+}
+
+
 class MySecondTabbedPage extends StatefulWidget {
   @override
   _MySecondTabbedPageState createState() => _MySecondTabbedPageState();
