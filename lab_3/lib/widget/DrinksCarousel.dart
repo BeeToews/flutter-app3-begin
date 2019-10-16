@@ -1,5 +1,7 @@
 import 'package:coffee_store_app/widget/DrinksCard.dart';
 import 'package:flutter/material.dart';
+import 'package:scoped_model/scoped_model.dart';
+import 'package:coffee_store_app/model/DrinksListModel.dart';
 
 class DrinksCarousel extends StatefulWidget {
   @override
@@ -48,14 +50,43 @@ class _DrinksCarouselState extends State<DrinksCarousel>
         ),
         child: Stack(
           children: <Widget>[
-            TabBarView(
+            ScopedModelDescendant<DrinksListModel>(
+              rebuildOnChange: false,
+              builder: (context, _, model){
+                return TabBarView(
               controller: _tabController,
               children: mainTypes.map((drinkType) {
-                return DrinksCard(
-                  drinkType: drinkType,
+                return GestureDetector(
+                  onTap: (){
+                    var type;
+                    switch(drinkType.title){
+                      case 'Coffee':
+                        type = coffeeTypes;
+                        break;
+                      case 'Tea':
+                        type = teaTypes;
+                        break;
+                      case 'Juice':
+                        type = juiceTypes;
+                        break;
+                      case 'Smoothie':
+                        type = smoothieTypes;
+                        break;
+                      default:
+                        throw '${drinkType.title} type not recognized'; 
+                    }
+                    //_carouselTimer.cancel();
+                    model.updateDrinksList(type);
+                  },
+                                  child: DrinksCard(
+                    drinkType: drinkType,
+                  ),
                 );
               }).toList(),
+            );
+              },
             ),
+            
             Align(
               alignment: Alignment.bottomCenter,
               child: Padding(
