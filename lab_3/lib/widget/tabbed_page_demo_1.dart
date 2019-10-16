@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class MyZeroTabbedPage extends StatefulWidget {
+class MyFirstTabbedPage extends StatefulWidget {
   @override
-  _MyZeroTabbedPageState createState() => _MyZeroTabbedPageState();
+  _MyFirstTabbedPageState createState() => _MyFirstTabbedPageState();
 }
 
-class _MyZeroTabbedPageState extends State<MyZeroTabbedPage> {
+class _MyFirstTabbedPageState extends State<MyFirstTabbedPage> {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(

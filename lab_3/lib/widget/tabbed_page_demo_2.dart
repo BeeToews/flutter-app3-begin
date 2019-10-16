@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class MyFirstTabbedPage extends StatefulWidget {
+class MySecondTabbedPage extends StatefulWidget {
   @override
-  _MyFirstTabbedPageState createState() => _MyFirstTabbedPageState();
+  _MySecondTabbedPageState createState() => _MySecondTabbedPageState();
 }
 
-class _MyFirstTabbedPageState extends State<MyFirstTabbedPage>
+class _MySecondTabbedPageState extends State<MySecondTabbedPage>
     with SingleTickerProviderStateMixin {
   final List<Tab> myTabs = <Tab>[
     Tab(text: 'LEFT'),

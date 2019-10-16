@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:coffee_store_app/widget/StoreHomePage.dart';
-import 'package:coffee_store_app/widget/tabbed_page_demo_zero.dart';
-import 'package:coffee_store_app/widget/tabbed_page_demo_one.dart';
-import 'package:coffee_store_app/widget/tabbed_page_demo_two.dart';
+import 'package:coffee_store_app/widget/tabbed_page_demo_1.dart';
+import 'package:coffee_store_app/widget/tabbed_page_demo_2.dart';
+import 'package:coffee_store_app/widget/tabbed_page_demo_3.dart';
+import 'package:coffee_store_app/widget/scoped_model_demo_1.dart';
 
 void main() => runApp(MyApp());
 
@@ -14,9 +15,10 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      //home: MyZeroTabbedPage(),
       //home: MyFirstTabbedPage(),
-      //home: AppBarBottomSample(),
+      //home: MySecondTabbedPage(),
+      //home: MyThirdTabbedPage(),
+      //home: MyFirstScopedModelPage(),
       home: StoreHomePage(title: 'Store Home'),
     );
   }

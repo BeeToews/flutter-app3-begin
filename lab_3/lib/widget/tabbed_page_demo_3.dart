@@ -4,12 +4,12 @@
 
 import 'package:flutter/material.dart';
 
-class AppBarBottomSample extends StatefulWidget {
+class MyThirdTabbedPage extends StatefulWidget {
   @override
-  _AppBarBottomSampleState createState() => _AppBarBottomSampleState();
+  _MyThirdTabbedPageState createState() => _MyThirdTabbedPageState();
 }
 
-class _AppBarBottomSampleState extends State<AppBarBottomSample>
+class _MyThirdTabbedPageState extends State<MyThirdTabbedPage>
     with SingleTickerProviderStateMixin {
   TabController _tabController;
 
@@ -118,5 +118,5 @@ class ChoiceCard extends StatelessWidget {
 }
 
 void main() {
-  runApp(AppBarBottomSample());
+  runApp(MyThirdTabbedPage());
 }
