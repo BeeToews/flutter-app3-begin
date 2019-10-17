@@ -1,10 +1,10 @@
 import 'package:scoped_model/scoped_model.dart';
 import 'package:flutter/material.dart';
 
-class MyApp4 extends StatelessWidget {
+class MyScopeModelApp1 extends StatelessWidget {
   final CounterModel model;
 
-  const MyApp4({Key key, @required this.model}) : super(key: key);
+  const MyScopeModelApp1({Key key, @required this.model}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -84,5 +84,3 @@ class CounterHome extends StatelessWidget {
     );
   }
 }
-
-

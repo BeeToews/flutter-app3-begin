@@ -4,8 +4,7 @@
 
 import 'package:flutter/material.dart';
 
-
-class MyApp3 extends StatelessWidget {
+class MyTabbedApp3 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -17,7 +16,6 @@ class MyApp3 extends StatelessWidget {
     );
   }
 }
-
 
 class MyThirdTabbedPage extends StatefulWidget {
   @override
