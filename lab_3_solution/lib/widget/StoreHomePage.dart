@@ -1,9 +1,8 @@
-import 'package:coffee_store_app/widget/DrinksCarousel.dart';
-import 'package:coffee_store_app/widget/DrinksList.dart';
-import 'package:coffee_store_app/model/DrinksListModel.dart';
+import 'package:lab3/widget/DrinksCarousel.dart';
+import 'package:lab3/widget/DrinksList.dart';
+import 'package:lab3/model/DrinksListModel.dart';
 import 'package:scoped_model/scoped_model.dart';
 import 'package:flutter/material.dart';
-
 
 class MyAppLab3 extends StatelessWidget {
   @override
@@ -19,7 +18,6 @@ class MyAppLab3 extends StatelessWidget {
 }
 
 class StoreHomePage extends StatelessWidget {
-
   final String title;
 
   const StoreHomePage({Key key, this.title}) : super(key: key);
@@ -28,7 +26,7 @@ class StoreHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return ScopedModel<DrinksListModel>(
       model: DrinksListModel(),
-          child: Scaffold(
+      child: Scaffold(
         backgroundColor: Colors.lightBlue,
         appBar: AppBar(
           title: Text(title),

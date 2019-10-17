@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:coffee_store_app/model/DrinkType.dart';
+import 'package:lab3/model/DrinkType.dart';
 
 List<DrinkType> mainTypes = <DrinkType>[
   DrinkType('Coffee', 'assets/img/black-coffee.jpeg', 4.12),
@@ -39,7 +39,6 @@ List<DrinkType> smoothieTypes = <DrinkType>[
 ];
 
 class DrinksCard extends StatelessWidget {
-
   final DrinkType drinkType;
 
   const DrinksCard({Key key, this.drinkType}) : super(key: key);
