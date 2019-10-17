@@ -8,7 +8,5 @@ import 'package:coffee_store_app/widget/scoped_model_demo_1.dart';
 //void main() => runApp(MyApp1());
 //void main() => runApp(MyApp2());
 //void main() => runApp(MyApp3());
-//void main() => runApp(MyApp4(model: CounterModel()));
-void main() => runApp(MyAppLab3());
-
-
+void main() => runApp(MyApp4(model: CounterModel()));
+//void main() => runApp(MyAppLab3());
