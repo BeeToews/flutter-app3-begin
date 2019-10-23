@@ -2,9 +2,6 @@
 	"folders": [
 		{
 			"path": "."
-		},
-		{
-			"path": "scoped_model_hello_world"
 		}
 	],
 	"settings": {}
