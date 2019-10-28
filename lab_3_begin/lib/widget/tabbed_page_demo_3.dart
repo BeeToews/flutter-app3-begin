@@ -129,7 +129,3 @@ class ChoiceCard extends StatelessWidget {
     );
   }
 }
-
-void main() {
-  runApp(MyThirdTabbedPage());
-}
