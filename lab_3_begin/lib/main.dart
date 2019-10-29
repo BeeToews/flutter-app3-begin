@@ -10,5 +10,5 @@ import 'package:coffee_store_app/widget/am_tabbed_page_scoped_model_demo.dart';
 //void main() => runApp(MyTabbedApp2());
 //void main() => runApp(MyTabbedApp3());
 //void main() => runApp(MyScopeModelApp1(model: CounterModel()));
-void main() => runApp(MyTabbedScopedModelApp1(myModel: MyModel()));
+void main() => runApp(MyTabbedScopedModelApp1());
 //void main() => runApp(MyAppLab3());

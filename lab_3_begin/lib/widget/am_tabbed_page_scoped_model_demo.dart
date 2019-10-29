@@ -1,144 +1,267 @@
 import 'package:scoped_model/scoped_model.dart';
 import 'package:flutter/material.dart';
 
+class Number {
+  final String title;
+  final String image;
+  Number(this.title, this.image);
+}
+
+List<Number> mainTypes = <Number>[
+  Number('Coffee', 'assets/img/black-coffee.jpeg'),
+  Number('Tea', 'assets/img/black-tea.jpeg'),
+  Number('Juice', 'assets/img/lemon.jpeg'),
+  //Number('Smoothie', 'assets/img/apple-smoothie.jpeg'),
+];
+
+List<Number> coffeeTypes = <Number>[
+  Number('Black Coffee', 'assets/img/black-coffee.jpeg'),
+  Number('Cappuccino', 'assets/img/cappuccino.jpeg'),
+  Number('Espresso', 'assets/img/espresso.jpeg'),
+  //Number('Latte', 'assets/img/latte.jpeg'),
+];
+
+List<Number> teaTypes = <Number>[
+  Number('Black Tea', 'assets/img/black-tea.jpeg'),
+  Number('Brown Tea', 'assets/img/brown-tea.jpeg'),
+  Number('English Tea', 'assets/img/english-tea.jpeg'),
+  Number('Herbal Tea', 'assets/img/herbal-tea.jpeg'),
+  Number('Mint Tea', 'assets/img/mint-tea.jpeg'),
+];
+
+List<Number> juiceTypes = <Number>[
+  Number('Lemon Juice', 'assets/img/lemon.jpeg'),
+  Number('Lime Juice', 'assets/img/lime.jpeg'),
+  Number('Pink Grape Juice', 'assets/img/pink-grape.jpeg'),
+  Number('Plum Juice', 'assets/img/plum.jpeg'),
+  Number('Tomato Juice', 'assets/img/tomato.jpeg'),
+];
+
 class MyModel extends Model {
-  int _counter = 0;
+  List<Number> _drinkType = coffeeTypes;
 
-  int get counter => _counter;
+  List<Number> get drinkType => _drinkType;
 
-  void increment() {
-    // First, increment the counter
-    _counter++;
-
-    // Then notify all the listeners.
+  void updateDrinksList(List<Number> type) {
+    _drinkType = type;
     notifyListeners();
   }
 }
 
-class MyTabbedScopedModelApp1 extends StatelessWidget {
-  final MyModel myModel;
+class DrinksCard extends StatelessWidget {
+  final Number drinkType;
 
-  const MyTabbedScopedModelApp1({Key key, @required this.myModel})
-      : super(key: key);
+  const DrinksCard({Key key, this.drinkType}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return ScopedModel<MyModel>(
-      model: myModel,
-      child: MaterialApp(
-        title: 'Scoped Model Demo',
-        home: MyTabbedScopeMoldel(),
+    return Card(
+      child: Center(
+        child: Stack(
+          children: <Widget>[
+            Image.asset(
+              drinkType.image,
+              height: double.infinity,
+              width: double.infinity,
+              fit: BoxFit.cover,
+            ),
+            Align(
+              alignment: Alignment.topCenter,
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  drinkType.title,
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 24.0,
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
 }
 
-class MyTabbedScopeMoldel extends StatefulWidget {
+class DrinksList extends StatelessWidget {
   @override
-  _MyTabbedScopeMoldelState createState() => _MyTabbedScopeMoldelState();
+  Widget build(BuildContext context) {
+    return ScopedModelDescendant<MyModel>(
+      builder: (context, _, model) {
+        return Expanded(
+          child: GridView.count(
+            crossAxisCount: 2,
+            padding: EdgeInsets.all(6.0),
+            children: model.drinkType.map((drinkType) {
+              return DrinksCard(
+                drinkType: drinkType,
+              );
+            }).toList(),
+          ),
+        );
+      },
+    );
+  }
 }
 
-class _MyTabbedScopeMoldelState extends State<MyTabbedScopeMoldel>
+class DrinksCarousel extends StatefulWidget {
+  @override
+  _DrinksCarouselState createState() => _DrinksCarouselState();
+}
+
+class _DrinksCarouselState extends State<DrinksCarousel>
     with SingleTickerProviderStateMixin {
   TabController _tabController;
 
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(vsync: this, length: choices.length);
+    _tabController = TabController(length: coffeeTypes.length, vsync: this);
   }
 
   @override
   void dispose() {
-    _tabController.dispose();
     super.dispose();
+    _tabController.dispose();
   }
 
-  void _nextPage(int delta) {
-    final int newIndex = _tabController.index + delta;
-    if (newIndex < 0 || newIndex >= _tabController.length) return;
-    _tabController.animateTo(newIndex);
+  void _changeImage({int delta, bool userInput = false}) {
+    var newTabIndex = _tabController.index + delta;
+    if (newTabIndex >= coffeeTypes.length) {
+      newTabIndex = 0;
+    } else if (newTabIndex < 0) {
+      newTabIndex = coffeeTypes.length - 1;
+    }
+    _tabController.animateTo(
+      newTabIndex,
+    );
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('AppBar Bottom Widget'),
-        leading: IconButton(
-          tooltip: 'Previous choice',
-          icon: const Icon(Icons.arrow_back),
-          onPressed: () {
-            _nextPage(-1);
-          },
-        ),
-        actions: <Widget>[
-          IconButton(
-            icon: const Icon(Icons.arrow_forward),
-            tooltip: 'Next choice',
-            onPressed: () {
-              _nextPage(1);
-            },
+    return SizedBox(
+      height: 250.0,
+      width: double.infinity,
+      child: DecoratedBox(
+        decoration: BoxDecoration(
+          border: Border.all(
+            width: 4.0,
+            color: Colors.black,
           ),
-        ],
-        bottom: PreferredSize(
-          preferredSize: const Size.fromHeight(48.0),
-          child: Theme(
-            data: Theme.of(context).copyWith(accentColor: Colors.white),
-            child: Container(
-              height: 48.0,
-              alignment: Alignment.center,
-              child: TabPageSelector(controller: _tabController),
+        ),
+        child: Stack(
+          children: <Widget>[
+            ScopedModelDescendant<MyModel>(
+              rebuildOnChange: false,
+              builder: (context, _, model) {
+                return TabBarView(
+                  controller: _tabController,
+                  children: mainTypes.map((drinkType) {
+                    return GestureDetector(
+                      onTap: () {
+                        var type;
+                        switch (drinkType.title) {
+                          case 'Coffee':
+                            type = coffeeTypes;
+                            break;
+                          case 'Tea':
+                            type = teaTypes;
+                            break;
+                          case 'Juice':
+                            type = juiceTypes;
+                            break;
+                          default:
+                            throw '${drinkType.title} type not recognized';
+                        }
+                        //_carouselTimer.cancel();
+                        model.updateDrinksList(type);
+                      },
+                      child: DrinksCard(
+                        drinkType: drinkType,
+                      ),
+                    );
+                  }).toList(),
+                );
+              },
             ),
-          ),
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: TabPageSelector(
+                  controller: _tabController,
+                  color: Colors.white,
+                  indicatorSize: 20,
+                ),
+              ),
+            ),
+            Align(
+              alignment: Alignment.centerLeft,
+              child: IconButton(
+                icon: Icon(
+                  Icons.arrow_back,
+                  color: Colors.white,
+                  size: 36,
+                ),
+                onPressed: () {
+                  _changeImage(delta: -1, userInput: true);
+                },
+              ),
+            ),
+            Align(
+              alignment: Alignment.centerRight,
+              child: IconButton(
+                icon: Icon(
+                  Icons.arrow_forward,
+                  color: Colors.red,
+                  size: 36,
+                ),
+                onPressed: () {
+                  _changeImage(delta: 1, userInput: true);
+                },
+              ),
+            ),
+          ],
         ),
-      ),
-      body: TabBarView(
-        controller: _tabController,
-        children: choices.map((Choice choice) {
-          return Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: ChoiceCard(choice: choice),
-          );
-        }).toList(),
       ),
     );
   }
 }
 
-class Choice {
-  const Choice({this.title, this.icon});
-
-  final String title;
-  final IconData icon;
+class MyTabbedScopedModelApp1 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Lab3 App',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: HomePage(title: 'Store Home'),
+    );
+  }
 }
 
-const List<Choice> choices = const <Choice>[
-  const Choice(title: 'CAR', icon: Icons.directions_car),
-  const Choice(title: 'BICYCLE', icon: Icons.directions_bike),
-  const Choice(title: 'BOAT', icon: Icons.directions_boat),
-  const Choice(title: 'BUS', icon: Icons.directions_bus),
-  const Choice(title: 'TRAIN', icon: Icons.directions_railway),
-  const Choice(title: 'WALK', icon: Icons.directions_walk),
-];
+class HomePage extends StatelessWidget {
+  final String title;
 
-class ChoiceCard extends StatelessWidget {
-  const ChoiceCard({Key key, this.choice}) : super(key: key);
-
-  final Choice choice;
+  const HomePage({Key key, this.title}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final TextStyle textStyle = Theme.of(context).textTheme.display1;
-    return Card(
-      color: Colors.white,
-      child: Center(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.center,
+    return ScopedModel<MyModel>(
+      model: MyModel(),
+      child: Scaffold(
+        backgroundColor: Colors.lightBlue,
+        appBar: AppBar(
+          title: Text(title),
+        ),
+        body: Column(
           children: <Widget>[
-            Icon(choice.icon, size: 128.0, color: textStyle.color),
-            Text(choice.title, style: textStyle),
+            DrinksCarousel(),
+            DrinksList(),
           ],
         ),
       ),
