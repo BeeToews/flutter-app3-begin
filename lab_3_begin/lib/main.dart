@@ -4,9 +4,11 @@ import 'package:coffee_store_app/widget/ac_tabbed_page_demo_1.dart';
 import 'package:coffee_store_app/widget/ae_tabbed_page_demo_2.dart';
 import 'package:coffee_store_app/widget/ag_tabbed_page_demo_3.dart';
 import 'package:coffee_store_app/widget/aj_scoped_model_demo_1.dart';
+import 'package:coffee_store_app/widget/am_tabbed_page_scoped_model_demo.dart';
 
 //void main() => runApp(MyTabbedApp1());
 //void main() => runApp(MyTabbedApp2());
-void main() => runApp(MyTabbedApp3());
+//void main() => runApp(MyTabbedApp3());
 //void main() => runApp(MyScopeModelApp1(model: CounterModel()));
+void main() => runApp(MyTabbedScopedModelApp1(myModel: MyModel()));
 //void main() => runApp(MyAppLab3());
