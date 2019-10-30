@@ -120,7 +120,7 @@ class _NumbersCarouselState extends State<NumbersCarousel>
     _tabController.dispose();
   }
 
-  void _changeImage({int delta, bool userInput = false}) {
+  void _changeImage({int delta}) {
     var newTabIndex = _tabController.index + delta;
     print('begin $newTabIndex');
     if (newTabIndex >= nums.length) {
@@ -167,7 +167,6 @@ class _NumbersCarouselState extends State<NumbersCarousel>
                           default:
                             throw '${numberType.title} type not recognized';
                         }
-                        //_carouselTimer.cancel();
                         model.updateNumbersList(type);
                       },
                       child: NumbersCard(
@@ -194,11 +193,11 @@ class _NumbersCarouselState extends State<NumbersCarousel>
               child: IconButton(
                 icon: Icon(
                   Icons.arrow_back,
-                  color: Colors.white,
+                  color: Colors.red,
                   size: 36,
                 ),
                 onPressed: () {
-                  _changeImage(delta: -1, userInput: true);
+                  _changeImage(delta: -1);
                 },
               ),
             ),
@@ -211,7 +210,7 @@ class _NumbersCarouselState extends State<NumbersCarousel>
                   size: 36,
                 ),
                 onPressed: () {
-                  _changeImage(delta: 1, userInput: true);
+                  _changeImage(delta: 1);
                 },
               ),
             ),
