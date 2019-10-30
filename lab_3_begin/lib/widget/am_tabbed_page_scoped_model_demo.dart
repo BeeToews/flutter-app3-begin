@@ -29,29 +29,21 @@ List<Number> teaTypes = <Number>[
   Number('Mint Tea', 'assets/img/mint-tea.jpeg'),
 ];
 
-List<Number> juiceTypes = <Number>[
-  Number('Lemon Juice', 'assets/img/lemon.jpeg'),
-  Number('Lime Juice', 'assets/img/lime.jpeg'),
-  Number('Pink Grape Juice', 'assets/img/pink-grape.jpeg'),
-  Number('Plum Juice', 'assets/img/plum.jpeg'),
-  Number('Tomato Juice', 'assets/img/tomato.jpeg'),
-];
-
 class MyModel extends Model {
-  List<Number> _drinkType = coffeeTypes;
+  List<Number> _numberType = coffeeTypes;
 
-  List<Number> get drinkType => _drinkType;
+  List<Number> get numberType => _numberType;
 
-  void updateDrinksList(List<Number> type) {
-    _drinkType = type;
+  void updateNumbersList(List<Number> type) {
+    _numberType = type;
     notifyListeners();
   }
 }
 
-class DrinksCard extends StatelessWidget {
-  final Number drinkType;
+class NumbersCard extends StatelessWidget {
+  final Number numberType;
 
-  const DrinksCard({Key key, this.drinkType}) : super(key: key);
+  const NumbersCard({Key key, this.numberType}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -60,7 +52,7 @@ class DrinksCard extends StatelessWidget {
         child: Stack(
           children: <Widget>[
             Image.asset(
-              drinkType.image,
+              numberType.image,
               height: double.infinity,
               width: double.infinity,
               fit: BoxFit.cover,
@@ -70,7 +62,7 @@ class DrinksCard extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Text(
-                  drinkType.title,
+                  numberType.title,
                   style: TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
@@ -86,7 +78,7 @@ class DrinksCard extends StatelessWidget {
   }
 }
 
-class DrinksList extends StatelessWidget {
+class NumbersList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScopedModelDescendant<MyModel>(
@@ -95,9 +87,9 @@ class DrinksList extends StatelessWidget {
           child: GridView.count(
             crossAxisCount: 2,
             padding: EdgeInsets.all(6.0),
-            children: model.drinkType.map((drinkType) {
-              return DrinksCard(
-                drinkType: drinkType,
+            children: model.numberType.map((numberType) {
+              return NumbersCard(
+                numberType: numberType,
               );
             }).toList(),
           ),
@@ -107,12 +99,12 @@ class DrinksList extends StatelessWidget {
   }
 }
 
-class DrinksCarousel extends StatefulWidget {
+class NumbersCarousel extends StatefulWidget {
   @override
-  _DrinksCarouselState createState() => _DrinksCarouselState();
+  _NumbersCarouselState createState() => _NumbersCarouselState();
 }
 
-class _DrinksCarouselState extends State<DrinksCarousel>
+class _NumbersCarouselState extends State<NumbersCarousel>
     with SingleTickerProviderStateMixin {
   TabController _tabController;
 
@@ -161,11 +153,11 @@ class _DrinksCarouselState extends State<DrinksCarousel>
               builder: (context, _, model) {
                 return TabBarView(
                   controller: _tabController,
-                  children: nums.map((drinkType) {
+                  children: nums.map((numberType) {
                     return GestureDetector(
                       onTap: () {
                         var type;
-                        switch (drinkType.title) {
+                        switch (numberType.title) {
                           case 'Coffee':
                             type = coffeeTypes;
                             break;
@@ -173,13 +165,13 @@ class _DrinksCarouselState extends State<DrinksCarousel>
                             type = teaTypes;
                             break;
                           default:
-                            throw '${drinkType.title} type not recognized';
+                            throw '${numberType.title} type not recognized';
                         }
                         //_carouselTimer.cancel();
-                        model.updateDrinksList(type);
+                        model.updateNumbersList(type);
                       },
-                      child: DrinksCard(
-                        drinkType: drinkType,
+                      child: NumbersCard(
+                        numberType: numberType,
                       ),
                     );
                   }).toList(),
@@ -259,8 +251,8 @@ class HomePage extends StatelessWidget {
         ),
         body: Column(
           children: <Widget>[
-            DrinksCarousel(),
-            DrinksList(),
+            NumbersCarousel(),
+            NumbersList(),
           ],
         ),
       ),
