@@ -30,20 +30,20 @@ List<Number> teaTypes = <Number>[
 ];
 
 class MyModel extends Model {
-  List<Number> _numberType = coffeeTypes;
+  List<Number> _chosenNumber = coffeeTypes;
 
-  List<Number> get numberType => _numberType;
+  List<Number> get chosenNumber => _chosenNumber;
 
   void updateNumbersList(List<Number> type) {
-    _numberType = type;
+    _chosenNumber = type;
     notifyListeners();
   }
 }
 
 class NumbersCard extends StatelessWidget {
-  final Number numberType;
+  final Number instantsNumber;
 
-  const NumbersCard({Key key, this.numberType}) : super(key: key);
+  const NumbersCard({Key key, this.instantsNumber}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +52,7 @@ class NumbersCard extends StatelessWidget {
         child: Stack(
           children: <Widget>[
             Image.asset(
-              numberType.image,
+              instantsNumber.image,
               height: double.infinity,
               width: double.infinity,
               fit: BoxFit.cover,
@@ -62,7 +62,7 @@ class NumbersCard extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Text(
-                  numberType.title,
+                  instantsNumber.title,
                   style: TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
@@ -87,9 +87,9 @@ class NumbersList extends StatelessWidget {
           child: GridView.count(
             crossAxisCount: 2,
             padding: EdgeInsets.all(6.0),
-            children: model.numberType.map((numberType) {
+            children: model.chosenNumber.map((numberType) {
               return NumbersCard(
-                numberType: numberType,
+                instantsNumber: numberType,
               );
             }).toList(),
           ),
@@ -170,7 +170,7 @@ class _NumbersCarouselState extends State<NumbersCarousel>
                         model.updateNumbersList(type);
                       },
                       child: NumbersCard(
-                        numberType: numberType,
+                        instantsNumber: numberType,
                       ),
                     );
                   }).toList(),
@@ -193,7 +193,7 @@ class _NumbersCarouselState extends State<NumbersCarousel>
               child: IconButton(
                 icon: Icon(
                   Icons.arrow_back,
-                  color: Colors.red,
+                  color: Colors.lightGreen,
                   size: 36,
                 ),
                 onPressed: () {
@@ -206,7 +206,7 @@ class _NumbersCarouselState extends State<NumbersCarousel>
               child: IconButton(
                 icon: Icon(
                   Icons.arrow_forward,
-                  color: Colors.red,
+                  color: Colors.lightGreen,
                   size: 36,
                 ),
                 onPressed: () {
@@ -227,7 +227,7 @@ class MyTabbedScopedModelApp1 extends StatelessWidget {
     return MaterialApp(
       title: 'Lab3 Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.lightGreen,
       ),
       home: HomePage(title: 'Lab3 Tabbed and Scoped Model Demo'),
     );
@@ -244,7 +244,7 @@ class HomePage extends StatelessWidget {
     return ScopedModel<MyModel>(
       model: MyModel(),
       child: Scaffold(
-        backgroundColor: Colors.lightBlue,
+        backgroundColor: Colors.lightGreen,
         appBar: AppBar(
           title: Text(title),
         ),
