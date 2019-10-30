@@ -130,11 +130,13 @@ class _DrinksCarouselState extends State<DrinksCarousel>
 
   void _changeImage({int delta, bool userInput = false}) {
     var newTabIndex = _tabController.index + delta;
-    if (newTabIndex >= coffeeTypes.length) {
+    print('begin $newTabIndex');
+    if (newTabIndex >= nums.length) {
       newTabIndex = 0;
     } else if (newTabIndex < 0) {
-      newTabIndex = coffeeTypes.length - 1;
+      newTabIndex = nums.length - 1;
     }
+    print('end $newTabIndex');
     _tabController.animateTo(
       newTabIndex,
     );
@@ -232,11 +234,11 @@ class MyTabbedScopedModelApp1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Lab3 App',
+      title: 'Lab3 Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: HomePage(title: 'Store Home'),
+      home: HomePage(title: 'Lab3 Tabbed and Scoped Model Demo'),
     );
   }
 }
