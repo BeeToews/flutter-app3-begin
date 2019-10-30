@@ -8,29 +8,25 @@ class Number {
 }
 
 List<Number> nums = <Number>[
-  Number('Coffee', 'assets/img/1-1.jpg'),
-  Number('Tea', 'assets/img/black-tea.jpeg'),
-  //Number('Juice', 'assets/img/lemon.jpeg'),
-  //Number('Smoothie', 'assets/img/apple-smoothie.jpeg'),
+  Number('1', 'assets/img/1-1.jpg'),
+  Number('2', 'assets/img/2-1.jpg'),
 ];
 
-List<Number> coffeeTypes = <Number>[
-  Number('Black Coffee', 'assets/img/black-coffee.jpeg'),
-  Number('Cappuccino', 'assets/img/cappuccino.jpeg'),
-  Number('Espresso', 'assets/img/espresso.jpeg'),
-  Number('Latte', 'assets/img/latte.jpeg'),
+List<Number> ones = <Number>[
+  Number('1-2', 'assets/img/1-2.jpg'),
+  Number('1-3', 'assets/img/1-3.jpg'),
+  Number('1-4', 'assets/img/1-4.jpg'),
+  Number('1-5', 'assets/img/1-5.jpg'),
 ];
 
-List<Number> teaTypes = <Number>[
-  Number('Black Tea', 'assets/img/black-tea.jpeg'),
-  Number('Brown Tea', 'assets/img/brown-tea.jpeg'),
-  Number('English Tea', 'assets/img/english-tea.jpeg'),
-  Number('Herbal Tea', 'assets/img/herbal-tea.jpeg'),
-  Number('Mint Tea', 'assets/img/mint-tea.jpeg'),
+List<Number> twos = <Number>[
+  Number('2-2', 'assets/img/2-2.jpg'),
+  Number('2-3', 'assets/img/2-3.jpg'),
+  Number('2-4', 'assets/img/2-4.jpg'),
 ];
 
 class MyModel extends Model {
-  List<Number> _chosenNumber = coffeeTypes;
+  List<Number> _chosenNumber = ones;
 
   List<Number> get chosenNumber => _chosenNumber;
 
@@ -56,20 +52,6 @@ class NumbersCard extends StatelessWidget {
               height: double.infinity,
               width: double.infinity,
               fit: BoxFit.cover,
-            ),
-            Align(
-              alignment: Alignment.topCenter,
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text(
-                  instantsNumber.title,
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 24.0,
-                  ),
-                ),
-              ),
             ),
           ],
         ),
@@ -158,11 +140,11 @@ class _NumbersCarouselState extends State<NumbersCarousel>
                       onTap: () {
                         var type;
                         switch (numberType.title) {
-                          case 'Coffee':
-                            type = coffeeTypes;
+                          case '1':
+                            type = ones;
                             break;
-                          case 'Tea':
-                            type = teaTypes;
+                          case '2':
+                            type = twos;
                             break;
                           default:
                             throw '${numberType.title} type not recognized';
