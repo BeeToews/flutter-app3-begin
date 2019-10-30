@@ -7,10 +7,10 @@ class Number {
   Number(this.title, this.image);
 }
 
-List<Number> mainTypes = <Number>[
-  Number('Coffee', 'assets/img/black-coffee.jpeg'),
+List<Number> nums = <Number>[
+  Number('Coffee', 'assets/img/1-1.jpg'),
   Number('Tea', 'assets/img/black-tea.jpeg'),
-  Number('Juice', 'assets/img/lemon.jpeg'),
+  //Number('Juice', 'assets/img/lemon.jpeg'),
   //Number('Smoothie', 'assets/img/apple-smoothie.jpeg'),
 ];
 
@@ -18,7 +18,7 @@ List<Number> coffeeTypes = <Number>[
   Number('Black Coffee', 'assets/img/black-coffee.jpeg'),
   Number('Cappuccino', 'assets/img/cappuccino.jpeg'),
   Number('Espresso', 'assets/img/espresso.jpeg'),
-  //Number('Latte', 'assets/img/latte.jpeg'),
+  Number('Latte', 'assets/img/latte.jpeg'),
 ];
 
 List<Number> teaTypes = <Number>[
@@ -119,7 +119,7 @@ class _DrinksCarouselState extends State<DrinksCarousel>
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: coffeeTypes.length, vsync: this);
+    _tabController = TabController(length: nums.length, vsync: this);
   }
 
   @override
@@ -159,7 +159,7 @@ class _DrinksCarouselState extends State<DrinksCarousel>
               builder: (context, _, model) {
                 return TabBarView(
                   controller: _tabController,
-                  children: mainTypes.map((drinkType) {
+                  children: nums.map((drinkType) {
                     return GestureDetector(
                       onTap: () {
                         var type;
@@ -169,9 +169,6 @@ class _DrinksCarouselState extends State<DrinksCarousel>
                             break;
                           case 'Tea':
                             type = teaTypes;
-                            break;
-                          case 'Juice':
-                            type = juiceTypes;
                             break;
                           default:
                             throw '${drinkType.title} type not recognized';
