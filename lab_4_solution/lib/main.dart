@@ -1,27 +1,96 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
-import 'package:lab3/widget/StoreHomePage.dart';
+import 'stock_list.dart';
+import 'stock.dart';
+import 'stock_service.dart';
+//
 
-class Person {
-  String firstName;
-  String lastName;
+void main() => runApp(new MyApp());
 
-  Person(this.firstName, this.lastName);
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return new MaterialApp(
+      title: 'Flutter Demo',
+      theme: new ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: new MyHomePage(title: 'Stock Watcher App'),
+    );
+  }
 }
 
-void main() {
-  List<Person> people = new List<Person>();
-  people.add(new Person("Joe", "Smithers"));
-  people.add(new Person("Patrick", "Thomas"));
-  for (var n in people) {
-    print('Hey ${n.firstName} ${n.lastName}');
-  }
-  var mappedNames =
-      people.map((n) => 'Mr. ${n.firstName} ${n.lastName}').toList();
-  for (var x in mappedNames) {
-    print(x);
-  }
+class MyHomePage extends StatefulWidget {
+  MyHomePage({Key key, this.title}) : super(key: key);
+  final String title;
 
-  runApp(MyAppLab3());
+  @override
+  _MyHomePageState createState() => new _MyHomePageState();
 }
 
-//void main() => runApp(MyAppLab3());
+class _MyHomePageState extends State<MyHomePage> {
+  var _stockList = new List<Stock>();
+  String _model = "";
+  StockService _stockService = StockService();
+
+  @override
+  initState() {
+    super.initState();
+  }
+
+  Future<Null> _inputStock() async {
+    await showDialog<String>(
+        context: context,
+        builder: (BuildContext context) {
+          return new AlertDialog(
+            title: const Text('Input Stock Ticker Symbol'),
+            contentPadding: EdgeInsets.all(5.0),
+            content: new TextField(
+              decoration: new InputDecoration(hintText: "Ticker Symbol"),
+              onChanged: (String value) {
+                _model = value;
+              },
+            ),
+            actions: <Widget>[
+              new FlatButton(
+                child: new Text("Ok"),
+                onPressed: () async {
+                  if (_model.isNotEmpty) {
+                    double price = await _stockService.getPrice(_model);
+                    setState(() {
+                      _stockList.add(new Stock(_model, price));
+                    });
+                    }
+                    _model = "";
+                  Navigator.pop(context);
+                },
+              ),
+              new FlatButton(
+                child: new Text("Cancel"),
+                onPressed: () => Navigator.pop(context),
+              ),
+            ],
+          );
+        });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return new Scaffold(
+      appBar: new AppBar(
+        title: new Text(widget.title),
+      ),
+      body: new Container(
+        child: new Center(
+          child: new StockList(stocks: _stockList),
+        ),
+      ),
+      floatingActionButton: new FloatingActionButton(
+        onPressed: () => _inputStock(),
+        tooltip: 'Add',
+        child: new Icon(Icons.add),
+      ),
+    );
+  }
+}
