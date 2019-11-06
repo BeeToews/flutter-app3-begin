@@ -57,7 +57,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: new Text("Ok"),
                 onPressed: () async {
                   if (_model.isNotEmpty) {
-                    double price = await _stockService.getPrice(_model);
+                    double price = await _stockService.getQuote(_model);
                     setState(() {
                       _stockList.add(new Stock(_model, price));
                     });

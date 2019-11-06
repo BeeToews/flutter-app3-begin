@@ -2,21 +2,24 @@ import 'package:http/http.dart' as http;
 import 'dart:async';
 import 'dart:convert';
 
+const apiToken = 'Tpk_27e2aa9354b742e4aac4092f8d2b7f59';
+
 class StockService {
-  Future<double> getPrice(String symbol) async {
+  Future<double> getQuote(String symbol) async {
     String url =
-        "https://sandbox.iexapis.com/stable/stock/${symbol}/quote/?token=Tpk_27e2aa9354b742e4aac4092f8d2b7f59";
+        "https://sandbox.iexapis.com/stable/stock/${symbol}/quote/?token=$apiToken";
     http.Response response = await http.get(url);
     print(response.statusCode);
     print(response.body);
     if (response.statusCode == 200) {
       var data = response.body;
       print(data);
-      var symbol = jsonDecode(response.body)['symbol'];
+      var decodedData = jsonDecode(data);
+      var symbol = decodedData['symbol'];
       print(symbol);
-      var companyName = jsonDecode(response.body)['companyName'];
+      var companyName = decodedData['companyName'];
       print(companyName);
-      var price = jsonDecode(response.body)['latestPrice'];
+      var price = decodedData['latestPrice'];
       print(price);
     } else {
       print(response.statusCode);
