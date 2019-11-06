@@ -3,7 +3,6 @@ import 'package:flutter/widgets.dart';
 import 'stock.dart';
 
 class StockList extends StatefulWidget {
-
   StockList({Key key, this.stocks}) : super(key: key);
 
   final List<Stock> stocks;
@@ -15,7 +14,6 @@ class StockList extends StatefulWidget {
 }
 
 class _StockListState extends State<StockList> {
-
   @override
   Widget build(BuildContext context) {
     return _buildStockList(context, widget.stocks);
@@ -25,9 +23,12 @@ class _StockListState extends State<StockList> {
     return new ListView.builder(
       itemCount: stocks.length,
       itemBuilder: (context, index) {
-        return ListTile(title: Text('${stocks[index].symbol}'),subtitle: Text('${stocks[index].price ?? "price not found"}'));
+        return ListTile(
+            title: Text('Symbol: ${stocks[index].symbol}'),
+            trailing:
+                Text('Price: ${stocks[index].price ?? "price not found"}'),
+            subtitle: Text('Name: ${stocks[index].price ?? "name not found"}'));
       },
     );
   }
-
 }

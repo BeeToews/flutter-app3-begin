@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: new ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: new MyHomePage(title: 'Stock Watcher App'),
+      home: new MyHomePage(title: 'Lab4-Stock Price App'),
     );
   }
 }
@@ -61,8 +61,8 @@ class _MyHomePageState extends State<MyHomePage> {
                     setState(() {
                       _stockList.add(new Stock(_model, price));
                     });
-                    }
-                    _model = "";
+                  }
+                  _model = "";
                   Navigator.pop(context);
                 },
               ),
