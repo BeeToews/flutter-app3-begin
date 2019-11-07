@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'stock_list.dart';
 import 'stock.dart';
 import 'stock_service.dart';
-//
+import 'package:stock_watcher/networking.dart';
 
 void main() => runApp(new MyApp());
 
@@ -31,7 +31,10 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   var _stockList = new List<Stock>();
-  String _model = "";
+  //String apiToken = 'Tpk_27e2aa9354b742e4aac4092f8d2b7f59';
+  //String url = "https://sandbox.iexapis.com/stable/stock/${symbol}/quote/?token=$apiToken";
+  String _stockSymbol = "";
+  //NetworkHelper networkHelper = new NetworkHelper(url);
   StockService _stockService = StockService();
 
   @override
@@ -49,20 +52,26 @@ class _MyHomePageState extends State<MyHomePage> {
             content: new TextField(
               decoration: new InputDecoration(hintText: "Ticker Symbol"),
               onChanged: (String value) {
-                _model = value;
+                _stockSymbol = value;
               },
             ),
             actions: <Widget>[
               new FlatButton(
                 child: new Text("Ok"),
                 onPressed: () async {
-                  if (_model.isNotEmpty) {
-                    double price = await _stockService.getQuote(_model);
+                  if (_stockSymbol.isNotEmpty) {
+                    var stockData = await _stockService.getQuote(_stockSymbol);
+                    var symbol = stockData['symbol'];
+                    print(symbol);
+                    var companyName = stockData['companyName'];
+                    print(companyName);
+                    var price = stockData['latestPrice'];
+                    print(price);
                     setState(() {
-                      _stockList.add(new Stock(_model, price));
+                      _stockList.add(new Stock(symbol, companyName, price));
                     });
                   }
-                  _model = "";
+                  _stockSymbol = "";
                   Navigator.pop(context);
                 },
               ),

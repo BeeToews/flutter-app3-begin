@@ -26,8 +26,8 @@ class _StockListState extends State<StockList> {
         return ListTile(
             title: Text('Symbol: ${stocks[index].symbol}'),
             trailing:
-                Text('Price: ${stocks[index].price ?? "price not found"}'),
-            subtitle: Text('Name: ${stocks[index].price ?? "name not found"}'));
+                Text('Price: \$${stocks[index].price ?? "price not found"} USD'),
+            subtitle: Text('Name: ${stocks[index].name ?? "name not found"}'));
       },
     );
   }
