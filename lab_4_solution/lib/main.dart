@@ -4,13 +4,13 @@ import 'stock_list.dart';
 import 'stock.dart';
 import 'stock_service.dart';
 
-void main() => runApp(new MyApp());
+void main() => runApp(new MyAppLab4());
 
-class MyApp extends StatelessWidget {
+class MyAppLab4 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Flutter Stock Price Demo',
       theme: new ThemeData(
         primarySwatch: Colors.blue,
       ),
@@ -55,6 +55,10 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: new Text("Ok"),
                 onPressed: () async {
                   if (_stockSymbol.isNotEmpty) {
+                    //TODO: get the stock data with _stockService.getQuote
+                    //then dig out the symbol, companyName, and latestPrice
+                    //then rapped in a setState create a new object of Stock
+                    //and add it to _stockList
                     var stockData = await _stockService.getQuote(_stockSymbol);
                     var symbol = stockData['symbol'];
                     print(symbol);

@@ -9,10 +9,11 @@ class StockService {
     String url =
         "https://sandbox.iexapis.com/stable/stock/${symbol}/quote/?token=$apiToken";
     http.Response response = await http.get(url);
-    //TODO: use jsonDecode to decode the response.body that is returned from http.get
-    //TODO: then return the decoded json to the calling method as a Future
     print(response.statusCode);
     print(response.body);
+    //TODO: use jsonDecode to decode the response.body that is returned from http.get
+    //TODO: then return the decoded json to the calling method as a Future
+
     if (response.statusCode == 200) {
       return jsonDecode(response.body);
     } else {
