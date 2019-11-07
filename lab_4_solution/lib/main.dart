@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'stock_list.dart';
 import 'stock.dart';
 import 'stock_service.dart';
-import 'package:stock_watcher/networking.dart';
 
 void main() => runApp(new MyApp());
 
