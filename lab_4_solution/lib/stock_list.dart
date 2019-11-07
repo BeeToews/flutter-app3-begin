@@ -24,9 +24,11 @@ class _StockListState extends State<StockList> {
       itemCount: stocks.length,
       itemBuilder: (context, index) {
         return ListTile(
+            //TODO:  use title, subtitle, and trailing to display the stock symbol
+            // companyName and latestPrice
             title: Text('Symbol: ${stocks[index].symbol}'),
-            trailing:
-                Text('Price: \$${stocks[index].price ?? "price not found"} USD'),
+            trailing: Text(
+                'Price: \$${stocks[index].price ?? "price not found"} USD'),
             subtitle: Text('Name: ${stocks[index].name ?? "name not found"}'));
       },
     );

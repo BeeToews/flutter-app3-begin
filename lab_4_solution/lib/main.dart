@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'stock_list.dart';
 import 'stock.dart';
@@ -30,10 +29,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   var _stockList = new List<Stock>();
-  //String apiToken = 'Tpk_27e2aa9354b742e4aac4092f8d2b7f59';
-  //String url = "https://sandbox.iexapis.com/stable/stock/${symbol}/quote/?token=$apiToken";
   String _stockSymbol = "";
-  //NetworkHelper networkHelper = new NetworkHelper(url);
   StockService _stockService = StockService();
 
   @override
