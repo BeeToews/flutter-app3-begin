@@ -60,9 +60,13 @@ class _MyHomePageState extends State<MyHomePage> {
                     //then rapped in a setState create a new object of Stock
                     //and add it to _stockList
                     var stockData = await _stockService.getQuote(_stockSymbol);
-                    var symbol = stockData['symbol'];
-                    print(symbol);
-
+                    var symbol = '';
+                    if (stockData == null) {
+                      symbol =
+                          "Previous call to getQuote failed to return the stock data";
+                    } else {
+                      symbol = stockData['symbol'];
+                    }
                     setState(() {
                       print(symbol);
                     });
