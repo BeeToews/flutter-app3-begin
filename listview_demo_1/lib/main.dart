@@ -15,7 +15,7 @@ class _AppState extends State<App> {
   Widget build (BuildContext ctxt) {
     return MaterialApp(
           home: new Scaffold(
-        appBar: new AppBar(title: new Text("Dynamic Demo"),),
+        appBar: new AppBar(title: new Text("Dynamic ListView Builder Demo"),),
         body: new Column(
           children: <Widget>[
             new TextField(
