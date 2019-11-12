@@ -70,8 +70,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       _stockList.add(new Stock(symbol, companyName, price));
                     });
                   }
-                  _stockSymbol = "";
-                  Navigator.pop(context);
+                  _stockSymbol = "";                  Navigator.pop(context);
                 },
               ),
               new FlatButton(
