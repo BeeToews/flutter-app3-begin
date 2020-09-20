@@ -3,7 +3,9 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 
 //https://medium.com/flutter-community/flutter-layout-cheat-sheet-5363348d037e
-// using the row and column widgets
+
+//Using the Row, Column, Expanded, Padding, Transform, Container,
+//BoxDecorator, Center, Align, and Text Widgets
 void main() {
   runApp(MyApp());
 }
@@ -42,7 +44,7 @@ class MyApp extends StatelessWidget {
                 ),
                 Transform.rotate(
                   angle: pi / 4,
-                  origin: Offset(-50, -50),
+                  //origin: Offset(-50, -50),
                   child: Container(
                     height: 100.0,
                     width: 100.0,
@@ -62,32 +64,42 @@ class MyApp extends StatelessWidget {
             Column(
               children: [
                 Expanded(
-                  child: Container(
-                    height: 150.0,
-                    width: 100.0,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.rectangle,
-                      color: Colors.yellow,
-                    ),
-                    child: Align(
-                      alignment: Alignment.bottomCenter,
-                      child: Text(
-                        'Container 3',
+                  flex: 1,
+                  child: Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Container(
+                      height: 100.0,
+                      width: 100.0,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.rectangle,
+                        color: Colors.yellow,
+                      ),
+                      child: Align(
+                        alignment: Alignment.bottomCenter,
+                        child: Text(
+                          'Container 3',
+                        ),
                       ),
                     ),
                   ),
                 ),
-                Container(
-                  height: 150.0,
-                  width: 100.0,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: Colors.blue,
-                  ),
-                  child: Align(
-                    alignment: Alignment.centerRight,
-                    child: Text(
-                      'Container 4',
+                Expanded(
+                  flex: 1,
+                  child: Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Container(
+                      height: 100.0,
+                      width: 100.0,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.rectangle,
+                        color: Colors.blue,
+                      ),
+                      child: Align(
+                        alignment: Alignment.centerRight,
+                        child: Text(
+                          'Container 4',
+                        ),
+                      ),
                     ),
                   ),
                 ),
@@ -95,28 +107,32 @@ class MyApp extends StatelessWidget {
             ),
             Column(
               children: [
-                Container(
-                  height: 200.0,
-                  //height: double.infinity,
-                  width: 100.0,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: Colors.black,
-                    border: Border.all(color: Colors.white, width: 3),
-                  ),
-                  child: Center(
-                    child: Text(
-                      'Container 5',
-                      style: TextStyle(
-                        color: Colors.white,
+                Expanded(
+                  flex: 2,
+                  child: Container(
+                    height: 100.0,
+                    //height: double.infinity,
+                    width: 100.0,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: Colors.black,
+                      border: Border.all(color: Colors.white, width: 3),
+                    ),
+                    child: Center(
+                      child: Text(
+                        'Container 5',
+                        style: TextStyle(
+                          color: Colors.white,
+                        ),
                       ),
                     ),
                   ),
                 ),
                 Expanded(
+                  flex: 1,
                   child: Container(
-                    width: 120,
-                    //height: 20.0,
+                    width: 100,
+                    height: 100.0,
                     //height: double.infinity,
                     decoration: BoxDecoration(
                       shape: BoxShape.rectangle,
@@ -124,8 +140,8 @@ class MyApp extends StatelessWidget {
                     ),
                     //width: double.infinity,
                     child: Text(
-                      'Container 6',
-                      style: TextStyle(fontSize: 20),
+                      'Con 6',
+                      style: TextStyle(fontSize: 30),
                     ),
                   ),
                 ),
