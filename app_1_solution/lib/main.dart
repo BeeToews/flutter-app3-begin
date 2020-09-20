@@ -21,9 +21,6 @@ class MyApp extends StatelessWidget {
           backgroundColor: Colors.blue,
         ),
         body: Row(
-          //crossAxisAlignment: CrossAxisAlignment.stretch,
-          //crossAxisAlignment: CrossAxisAlignment.start,
-          //crossAxisAlignment: CrossAxisAlignment.end,
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           mainAxisSize: MainAxisSize.max,
           children: <Widget>[
@@ -33,7 +30,7 @@ class MyApp extends StatelessWidget {
                   height: 100.0,
                   width: 100.0,
                   decoration: BoxDecoration(
-                    shape: BoxShape.circle,
+                    shape: BoxShape.rectangle,
                     color: Colors.amber,
                     border: Border.all(color: Colors.black, width: 3),
                   ),
@@ -43,17 +40,20 @@ class MyApp extends StatelessWidget {
                     ),
                   ),
                 ),
-                Container(
-                  height: 100.0,
-                  width: 100.0,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.rectangle,
-                    color: Colors.white,
-                  ),
-                  transform: Matrix4.rotationZ(pi / 4),
-                  child: Center(
-                    child: Text(
-                      'Container 2',
+                Transform.rotate(
+                  angle: pi / 4,
+                  origin: Offset(-50, -50),
+                  child: Container(
+                    height: 100.0,
+                    width: 100.0,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.rectangle,
+                      color: Colors.white,
+                    ),
+                    child: Center(
+                      child: Text(
+                        'Container 2',
+                      ),
                     ),
                   ),
                 ),
