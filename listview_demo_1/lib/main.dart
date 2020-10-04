@@ -10,34 +10,32 @@ class App extends StatefulWidget {
 
 class _AppState extends State<App> {
   List<String> litems = [];
-  final TextEditingController eCtrl = new TextEditingController();
+  final TextEditingController eCtrl = TextEditingController();
   @override
-  Widget build (BuildContext ctxt) {
+  Widget build(BuildContext ctxt) {
     return MaterialApp(
-          home: new Scaffold(
-        appBar: new AppBar(title: new Text("Dynamic ListView Builder Demo"),),
-        body: new Column(
-          children: <Widget>[
-            new TextField(
-              controller: eCtrl,
-              onSubmitted: (text) {
-                litems.add(text);
-                eCtrl.clear();
-                setState(() {});
-              },
-            ),
-            new Expanded(
-              child: new ListView.builder
-                (
-                  itemCount: litems.length,
-                  itemBuilder: (BuildContext ctxt, int index) {
-                    return new Text(litems[index]);
-                  }
-              )
-          )
-          ],
-        )
-      ),
+      home: Scaffold(
+          appBar: AppBar(
+            title: Text("Dynamic ListView Builder Demo"),
+          ),
+          body: Column(
+            children: <Widget>[
+              TextField(
+                controller: eCtrl,
+                onSubmitted: (text) {
+                  litems.add(text);
+                  eCtrl.clear();
+                  setState(() {});
+                },
+              ),
+              Expanded(
+                  child: ListView.builder(
+                      itemCount: litems.length,
+                      itemBuilder: (BuildContext ctxt, int index) {
+                        return Text(litems[index]);
+                      }))
+            ],
+          )),
     );
   }
 }
