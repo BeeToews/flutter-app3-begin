@@ -2,7 +2,7 @@ import 'package:coffee_store_app/widget/DrinksCarousel.dart';
 import 'package:coffee_store_app/widget/DrinksList.dart';
 import 'package:flutter/material.dart';
 
-class MyAppLab3 extends StatelessWidget {
+class MyApp3 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
