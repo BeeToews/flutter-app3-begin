@@ -39,10 +39,9 @@ List<DrinkType> smoothieTypes = <DrinkType>[
 ];
 
 class DrinksCard extends StatelessWidget {
+  const DrinksCard({Key key, this.drinkType}) : super(key: key);
 
   final DrinkType drinkType;
-
-  const DrinksCard({Key key, this.drinkType}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
