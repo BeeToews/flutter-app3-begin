@@ -8,6 +8,9 @@ class DrinksList extends StatelessWidget {
       child: GridView.count(
         crossAxisCount: 2,
         padding: EdgeInsets.all(6.0),
+        //We transform the coffeTypes list into a new
+        //list of DrinksCards using the List.map().toList()
+        //method calls from the List class.
         children: coffeeTypes.map((e) {
           return DrinksCard(
             drinkType: e,
