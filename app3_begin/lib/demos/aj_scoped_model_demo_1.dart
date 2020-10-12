@@ -1,10 +1,19 @@
+//This app demonstrates the use of the ScopedModel package
+//that looks after the state management of the app.
+
+//ScopedModel by whatsupcoders.
+//https://www.youtube.com/watch?v=kpOT4OTzKLU
+
+//scoped model by the flutter community.
+//https://medium.com/@soonsantos/how-to-use-scopedmodel-in-flutter-f4178a728f99
+
 import 'package:scoped_model/scoped_model.dart';
 import 'package:flutter/material.dart';
 
 class MyScopeModelApp1 extends StatelessWidget {
-  final CounterModel model;
-
   const MyScopeModelApp1({Key key, @required this.model}) : super(key: key);
+
+  final CounterModel model;
 
   @override
   Widget build(BuildContext context) {
