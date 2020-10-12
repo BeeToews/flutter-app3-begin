@@ -1,3 +1,7 @@
+//This app demonstrates the TabPageSelector widget,
+//in conjuntion with the TabController and TabBarView.
+//No TabBar on this app.
+
 import 'package:flutter/material.dart';
 
 class MyTabbedApp3 extends StatelessWidget {
@@ -36,6 +40,7 @@ class _MyThirdTabbedPageState extends State<MyThirdTabbedPage>
 
   void _nextPage(int delta) {
     final int newIndex = _tabController.index + delta;
+
     if (newIndex < 0 || newIndex >= _tabController.length) return;
     _tabController.animateTo(newIndex);
   }
