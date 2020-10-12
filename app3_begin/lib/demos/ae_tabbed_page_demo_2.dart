@@ -1,3 +1,6 @@
+//lifecycle explained from flutter community.
+//https://medium.com/flutter-community/flutter-lifecycle-for-android-and-ios-developers-8f532307e0c7
+
 import 'package:flutter/material.dart';
 
 class MyTabbedApp2 extends StatelessWidget {
