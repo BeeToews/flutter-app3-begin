@@ -17,6 +17,9 @@ List<Number> ones = <Number>[
   Number('1-3', 'assets/img/1-3.jpg'),
   Number('1-4', 'assets/img/1-4.jpg'),
   Number('1-5', 'assets/img/1-5.jpg'),
+  Number('1-6', 'assets/img/1-6.jpg'),
+  Number('1-7', 'assets/img/1-7.jpg'),
+  Number('1-8', 'assets/img/1-8.jpg'),
 ];
 
 List<Number> twos = <Number>[
@@ -211,7 +214,7 @@ class MyTabbedScopedModelApp1 extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.lightGreen,
       ),
-      home: HomePage(title: 'Lab3 Tabbed and Scoped Model Demo'),
+      home: HomePage(title: 'Tabbed and Scoped Model Demo'),
     );
   }
 }
