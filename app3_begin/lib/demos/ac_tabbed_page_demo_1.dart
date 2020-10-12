@@ -1,4 +1,7 @@
-//DefualtTabController and TabBar and TabBarView Widgets of the week.
+//This app demonstrates the DefaultTabController,
+//TabBar, and TabBarView Widgets.
+
+//DefualtTabController, TabBar, and TabBarView Widgets of the week.
 //https://www.youtube.com/watch?v=POtoEH-5l40&vl=en
 
 import 'package:flutter/material.dart';

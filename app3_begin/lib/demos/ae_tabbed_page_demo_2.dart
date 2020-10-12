@@ -1,3 +1,13 @@
+//This app demonstrates the TabController,
+//TabBar, and TabBarView Widgets.
+//When we use the TabController we have to initialize
+//early in the lifecycle of the Stateful widget.
+//The app also uses the List.map().toList() methods
+//to convert a simple list into TabBar and TabView
+//widgets.
+//It also shows the use of mixins, but we will talk
+//about that later.
+
 //lifecycle explained from flutter community.
 //https://medium.com/flutter-community/flutter-lifecycle-for-android-and-ios-developers-8f532307e0c7
 
