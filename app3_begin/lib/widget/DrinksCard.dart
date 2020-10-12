@@ -1,3 +1,6 @@
+//Stack Widget of the Week.
+//https://www.youtube.com/watch?v=liEGSeD3Zt8&list=PLjxrf2q8roU23XGwz3Km7sQZFTdB996iG&index=50
+
 import 'package:flutter/material.dart';
 import 'package:coffee_store_app/model/DrinkType.dart';
 
@@ -47,9 +50,12 @@ class DrinksCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       child: Center(
+        //Stack widget is used to place the title
+        //on top of the image.
         child: Stack(
           children: <Widget>[
             Image.asset(
+              //Each DrinksCard will have an image.
               drinkType.image,
               height: double.infinity,
               width: double.infinity,
@@ -60,6 +66,7 @@ class DrinksCard extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Text(
+                  //Each DrinksCard will have a title.
                   drinkType.title,
                   style: TextStyle(
                     color: Colors.white,

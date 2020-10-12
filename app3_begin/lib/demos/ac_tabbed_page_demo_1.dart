@@ -1,3 +1,6 @@
+//DefualtTabController and TabBar and TabBarView Widgets of the week.
+//https://www.youtube.com/watch?v=POtoEH-5l40&vl=en
+
 import 'package:flutter/material.dart';
 
 class MyTabbedApp1 extends StatelessWidget {
@@ -27,9 +30,9 @@ class _MyFirstTabbedPageState extends State<MyFirstTabbedPage> {
         appBar: AppBar(
           bottom: TabBar(
             tabs: [
-              Tab(icon: Icon(Icons.directions_car)),
+              Tab(text: "Car"),
               Tab(icon: Icon(Icons.directions_transit)),
-              Tab(icon: Icon(Icons.directions_bike)),
+              Tab(text: "Bike"),
             ],
           ),
           title: Text('Tabs Demo'),
