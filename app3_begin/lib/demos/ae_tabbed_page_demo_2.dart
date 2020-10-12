@@ -48,7 +48,12 @@ class _MySecondTabbedPageState extends State<MySecondTabbedPage>
       appBar: AppBar(
         bottom: TabBar(
           controller: _tabController,
-          tabs: myTabs,
+          tabs: myTabs.map((Tab tab) {
+            return Text(
+              tab.text,
+              style: TextStyle(fontSize: 36),
+            );
+          }).toList(),
         ),
       ),
       body: TabBarView(
