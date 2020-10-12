@@ -1,5 +1,5 @@
 //This app demonstrates the use of the ScopedModel package
-//that looks after the state management of the app.
+//that looks after the state management for the app.
 
 //ScopedModel by whatsupcoders.
 //https://www.youtube.com/watch?v=kpOT4OTzKLU
