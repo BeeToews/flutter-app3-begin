@@ -40,9 +40,9 @@ class MyModel extends Model {
 }
 
 class NumbersCard extends StatelessWidget {
-  final Number instantsNumber;
-
   const NumbersCard({Key key, this.instantsNumber}) : super(key: key);
+
+  final Number instantsNumber;
 
   @override
   Widget build(BuildContext context) {
@@ -72,9 +72,9 @@ class NumbersList extends StatelessWidget {
           child: GridView.count(
             crossAxisCount: 2,
             padding: EdgeInsets.all(6.0),
-            children: model.chosenNumber.map((numberType) {
+            children: model.chosenNumber.map((e) {
               return NumbersCard(
-                instantsNumber: numberType,
+                instantsNumber: e,
               );
             }).toList(),
           ),
