@@ -1,10 +1,64 @@
+//This app demonstrates a working carousel and GridView.
+//It also shows property explicit getters and setters.
+
+//Dart getters and setters by geekforgeeks.
+//https://www.geeksforgeeks.org/getter-and-setter-methods-in-dart/
+
+//Dart getters and setters by dart.dev.
+//https://dart.dev/guides/language/language-tour#getters-and-setters
+
 import 'package:scoped_model/scoped_model.dart';
 import 'package:flutter/material.dart';
 
+class MyTabbedScopedModelApp1 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Lab3 Demo',
+      theme: ThemeData(
+        primarySwatch: Colors.lightGreen,
+      ),
+      home: HomePage(title: 'Tabbed and Scoped Model Demo'),
+    );
+  }
+}
+
+class HomePage extends StatelessWidget {
+  const HomePage({this.title});
+
+  final String title;
+
+  @override
+  Widget build(BuildContext context) {
+    //ScopedModel is the top level widget of this
+    //state management package. Notice it is a generic
+    //that is of type MyModel implemented later in this file.
+    return ScopedModel<MyModel>(
+      //The ScopedModel widgets model property
+      //will instanciate an object from MyModel class.
+      model: MyModel(),
+      child: Scaffold(
+        backgroundColor: Colors.lightGreen,
+        appBar: AppBar(
+          title: Text(title),
+        ),
+        body: Column(
+          children: <Widget>[
+            NumbersCarousel(),
+            NumbersList(),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
 class Number {
+  //Constructor
+  Number(this.title, this.image);
+  //Public fields.
   final String title;
   final String image;
-  Number(this.title, this.image);
 }
 
 List<Number> nums = <Number>[
@@ -17,9 +71,9 @@ List<Number> ones = <Number>[
   Number('1-3', 'assets/img/1-3.jpg'),
   Number('1-4', 'assets/img/1-4.jpg'),
   Number('1-5', 'assets/img/1-5.jpg'),
-  Number('1-6', 'assets/img/1-6.jpg'),
-  Number('1-7', 'assets/img/1-7.jpg'),
-  Number('1-8', 'assets/img/1-8.jpg'),
+  Number('1-6', 'assets/img/1-1.jpg'),
+  //Number('1-7', 'assets/img/1-7.jpg'),
+  //Number('1-8', 'assets/img/1-8.jpg'),
 ];
 
 List<Number> twos = <Number>[
@@ -29,18 +83,20 @@ List<Number> twos = <Number>[
 ];
 
 class MyModel extends Model {
+  //This is a private field.
   List<Number> _chosenNumber = ones;
-
+  //This is a public properties getter.
   List<Number> get chosenNumber => _chosenNumber;
-
-  void updateNumbersList(List<Number> type) {
+  //This is a public properties setter.
+  set chosenNumber(List<Number> type) {
     _chosenNumber = type;
+    //This is called whenever something is changed.
     notifyListeners();
   }
 }
 
 class NumbersCard extends StatelessWidget {
-  const NumbersCard({Key key, this.instantsNumber}) : super(key: key);
+  const NumbersCard({this.instantsNumber});
 
   final Number instantsNumber;
 
@@ -152,7 +208,11 @@ class _NumbersCarouselState extends State<NumbersCarousel>
                           default:
                             throw '${numberType.title} type not recognized';
                         }
-                        model.updateNumbersList(type);
+                        //This calls the setter of model.chosenNumber.
+                        //type is automatically passed as an argument
+                        //into the properties parm.
+                        //This happens because of the key word set.
+                        model.chosenNumber = type;
                       },
                       child: NumbersCard(
                         instantsNumber: numberType,
@@ -199,44 +259,6 @@ class _NumbersCarouselState extends State<NumbersCarousel>
                 },
               ),
             ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class MyTabbedScopedModelApp1 extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Lab3 Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.lightGreen,
-      ),
-      home: HomePage(title: 'Tabbed and Scoped Model Demo'),
-    );
-  }
-}
-
-class HomePage extends StatelessWidget {
-  final String title;
-
-  const HomePage({Key key, this.title}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return ScopedModel<MyModel>(
-      model: MyModel(),
-      child: Scaffold(
-        backgroundColor: Colors.lightGreen,
-        appBar: AppBar(
-          title: Text(title),
-        ),
-        body: Column(
-          children: <Widget>[
-            NumbersCarousel(),
-            NumbersList(),
           ],
         ),
       ),
