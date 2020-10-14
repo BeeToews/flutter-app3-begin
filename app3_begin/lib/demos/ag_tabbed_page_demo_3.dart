@@ -29,6 +29,7 @@ class _MyThirdTabbedPageState extends State<MyThirdTabbedPage>
   @override
   void initState() {
     super.initState();
+    //Instatiate a TabController.
     _tabController = TabController(vsync: this, length: choices.length);
   }
 
@@ -41,7 +42,7 @@ class _MyThirdTabbedPageState extends State<MyThirdTabbedPage>
   void _nextPage(int delta) {
     final int newIndex = _tabController.index + delta;
 
-    if (newIndex < 0 || newIndex >= _tabController.length) return;
+    //if (newIndex < 0 || newIndex >= _tabController.length) return;
     _tabController.animateTo(newIndex);
   }
 
@@ -66,24 +67,31 @@ class _MyThirdTabbedPageState extends State<MyThirdTabbedPage>
             },
           ),
         ],
+        //the bottom property only accepts PreferredSizeWidget types.
         bottom: PreferredSize(
           preferredSize: const Size.fromHeight(48.0),
           child: Theme(
-            data: Theme.of(context).copyWith(accentColor: Colors.white),
+            data: Theme.of(context).copyWith(
+              accentColor: Colors.white,
+            ),
             child: Container(
               height: 48.0,
               alignment: Alignment.center,
-              child: TabPageSelector(controller: _tabController),
+              child: TabPageSelector(
+                controller: _tabController,
+              ),
             ),
           ),
         ),
       ),
       body: TabBarView(
         controller: _tabController,
-        children: choices.map((Choice choice) {
+        children: choices.map((e) {
           return Padding(
             padding: const EdgeInsets.all(16.0),
-            child: ChoiceCard(choice: choice),
+            child: ChoiceCard(
+              choice: e,
+            ),
           );
         }).toList(),
       ),
@@ -108,7 +116,7 @@ const List<Choice> choices = const <Choice>[
 ];
 
 class ChoiceCard extends StatelessWidget {
-  const ChoiceCard({Key key, this.choice}) : super(key: key);
+  const ChoiceCard({this.choice});
 
   final Choice choice;
 
@@ -122,8 +130,15 @@ class ChoiceCard extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            Icon(choice.icon, size: 128.0, color: textStyle.color),
-            Text(choice.title, style: textStyle),
+            Icon(
+              choice.icon,
+              size: 128.0,
+              color: textStyle.color,
+            ),
+            Text(
+              choice.title,
+              style: textStyle,
+            ),
           ],
         ),
       ),

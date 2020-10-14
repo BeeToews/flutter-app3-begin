@@ -11,6 +11,9 @@
 //lifecycle explained from flutter community.
 //https://medium.com/flutter-community/flutter-lifecycle-for-android-and-ios-developers-8f532307e0c7
 
+//Why not to use the DefaultTabController by medium
+//https://medium.com/flutterworld/flutter-tabbar-and-tricks-4f36e06025a4
+
 import 'package:flutter/material.dart';
 
 class MyTabbedApp2 extends StatelessWidget {
@@ -43,6 +46,10 @@ class _MySecondTabbedPageState extends State<MySecondTabbedPage>
   @override
   void initState() {
     super.initState();
+    //Instantiation of a TabController.
+    //length must not be neg, zero, or null.
+    //The vsync property is associated with the SingleTickerProviderStateMixin.
+    //This has to do with the animations but we will cover later.
     _tabController = TabController(vsync: this, length: myTabs.length);
   }
 
@@ -57,6 +64,7 @@ class _MySecondTabbedPageState extends State<MySecondTabbedPage>
     return Scaffold(
       appBar: AppBar(
         bottom: TabBar(
+          //This TabBar uses the TabController.
           controller: _tabController,
           tabs: myTabs.map((Tab tab) {
             return Text(
@@ -67,6 +75,7 @@ class _MySecondTabbedPageState extends State<MySecondTabbedPage>
         ),
       ),
       body: TabBarView(
+        //This TabBarView uses the TabController.
         controller: _tabController,
         children: myTabs.map((Tab tab) {
           final String label = tab.text.toLowerCase();

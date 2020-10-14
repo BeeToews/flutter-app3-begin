@@ -32,6 +32,7 @@ class _MyFirstTabbedPageState extends State<MyFirstTabbedPage> {
       child: Scaffold(
         appBar: AppBar(
           bottom: TabBar(
+            //The tabs property must be a list<Tab>.
             tabs: [
               Tab(text: "Car"),
               Tab(icon: Icon(Icons.directions_transit)),
@@ -41,6 +42,8 @@ class _MyFirstTabbedPageState extends State<MyFirstTabbedPage> {
           title: Text('Tabs Demo'),
         ),
         body: TabBarView(
+          //However many list elements are in the TabBar
+          //you must have exactly the same amount in the TabBarView.
           children: [
             Icon(Icons.directions_car),
             Icon(Icons.directions_transit),
