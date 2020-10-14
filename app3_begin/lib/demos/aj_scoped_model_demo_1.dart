@@ -55,7 +55,7 @@ class CounterHome extends StatelessWidget {
   CounterHome(this.title);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context1) {
     return Scaffold(
       appBar: AppBar(
         title: Text(title),
@@ -65,16 +65,18 @@ class CounterHome extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text('You have pushed the button this many times:'),
-            // Create a ScopedModelDescendant. This widget will get the
-            // CounterModel from the nearest parent ScopedModel<CounterModel>.
-            // It will hand that CounterModel to our builder method, and
-            // rebuild any time the MyCounterModel changes (i.e. after we
-            // notifyListeners in the Model).
+            //Create a ScopedModelDescendant. This widget will get the
+            //MyCounterModel from the nearest parent ScopedModel<CounterModel>
+            //model property.
+            //It will hand that MyCounterModel to our builder method,
+            //via the model parm of the anonymous funciton, and
+            //rebuild any time the MyCounterModel changes (i.e. after we
+            //notifyListeners in the Model).
             ScopedModelDescendant<MyCounterModel>(
-              builder: (context, child, model) {
+              builder: (contextParm, childParm, modelParm) {
                 return Text(
-                  model.counter.toString(),
-                  style: Theme.of(context).textTheme.headline4,
+                  modelParm.counter.toString(),
+                  style: Theme.of(context1).textTheme.headline4,
                 );
               },
             ),
@@ -84,11 +86,11 @@ class CounterHome extends StatelessWidget {
       // Use the ScopedModelDescendant again in order to use the increment
       // method from the MyCounterModel
       floatingActionButton: ScopedModelDescendant<MyCounterModel>(
-        builder: (context, child, model) {
+        builder: (contextParm, childParm, modelParm) {
           return FloatingActionButton(
             //Address of the model.increment method from the
             //MyCounterModel class.
-            onPressed: model.increment,
+            onPressed: modelParm.increment,
             tooltip: 'Increment',
             child: Icon(Icons.add),
           );
