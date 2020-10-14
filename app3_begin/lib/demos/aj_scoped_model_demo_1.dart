@@ -11,17 +11,17 @@ import 'package:scoped_model/scoped_model.dart';
 import 'package:flutter/material.dart';
 
 class MyScopeModelApp1 extends StatelessWidget {
-  const MyScopeModelApp1({Key key, @required this.model}) : super(key: key);
+  const MyScopeModelApp1({@required this.myModel});
 
-  final CounterModel model;
+  final MyCounterModel myModel;
 
   @override
   Widget build(BuildContext context) {
     // At the top level of our app, we'll, create a ScopedModel Widget. This
-    // will provide the CounterModel to all children in the app that request it
+    // will provide the MyCounterModel to all children in the app that request it
     // using a ScopedModelDescendant.
-    return ScopedModel<CounterModel>(
-      model: model,
+    return ScopedModel<MyCounterModel>(
+      model: myModel,
       child: MaterialApp(
         title: 'Scoped Model Demo',
         home: CounterHome('Scoped Model Demo'),
@@ -32,17 +32,19 @@ class MyScopeModelApp1 extends StatelessWidget {
 
 // Start by creating a class that has a counter and a method to increment it.
 //
-// Note: It must extend from Model.
-class CounterModel extends Model {
+// Note: It must inheirit from Model.
+class MyCounterModel extends Model {
+  //Private field.
   int _counter = 0;
-
+  //Public property.
   int get counter => _counter;
 
   void increment() {
-    // First, increment the counter
+    //Increment the counter
     _counter++;
 
-    // Then notify all the listeners.
+    //The notifyListeners method comes from the
+    //base Model of the ScopedModel package.
     notifyListeners();
   }
 }
@@ -66,9 +68,9 @@ class CounterHome extends StatelessWidget {
             // Create a ScopedModelDescendant. This widget will get the
             // CounterModel from the nearest parent ScopedModel<CounterModel>.
             // It will hand that CounterModel to our builder method, and
-            // rebuild any time the CounterModel changes (i.e. after we
-            // `notifyListeners` in the Model).
-            ScopedModelDescendant<CounterModel>(
+            // rebuild any time the MyCounterModel changes (i.e. after we
+            // notifyListeners in the Model).
+            ScopedModelDescendant<MyCounterModel>(
               builder: (context, child, model) {
                 return Text(
                   model.counter.toString(),
@@ -80,10 +82,12 @@ class CounterHome extends StatelessWidget {
         ),
       ),
       // Use the ScopedModelDescendant again in order to use the increment
-      // method from the CounterModel
-      floatingActionButton: ScopedModelDescendant<CounterModel>(
+      // method from the MyCounterModel
+      floatingActionButton: ScopedModelDescendant<MyCounterModel>(
         builder: (context, child, model) {
           return FloatingActionButton(
+            //Address of the model.increment method from the
+            //MyCounterModel class.
             onPressed: model.increment,
             tooltip: 'Increment',
             child: Icon(Icons.add),

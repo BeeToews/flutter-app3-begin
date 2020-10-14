@@ -7,8 +7,15 @@ import 'package:coffee_store_app/demos/aj_scoped_model_demo_1.dart';
 import 'package:coffee_store_app/demos/am_tabbed_page_scoped_model_demo.dart';
 
 //void main() => runApp(MyTabbedApp1());
+
 //void main() => runApp(MyTabbedApp2());
+
 //void main() => runApp(MyTabbedApp3());
-void main() => runApp(MyScopeModelApp1(model: CounterModel()));
+
+//MyScopedModelApp1 instanciates an object of type MyCounterModel
+//implemented on am_tabbed_page_scoped_model_demo_1.dart.
+void main() => runApp(MyScopeModelApp1(myModel: MyCounterModel()));
+
 //void main() => runApp(MyTabbedScopedModelApp1());
+
 //void main() => runApp(MyApp3());
