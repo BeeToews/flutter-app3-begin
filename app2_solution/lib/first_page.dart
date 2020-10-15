@@ -14,10 +14,7 @@ class _MyFirstPageState extends State<MyFirstPage> {
     Object onPressed1() {
       if (_enabled) {
         return () {
-          setState(() {
-            _msg1 = 'Enabled';
-            print('Button Pressed');
-          });
+          print('Button Pressed');
         };
       } else {
         return null;
