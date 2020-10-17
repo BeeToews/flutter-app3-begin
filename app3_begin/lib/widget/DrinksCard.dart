@@ -42,7 +42,7 @@ List<DrinkType> smoothieTypes = <DrinkType>[
 ];
 
 class DrinksCard extends StatelessWidget {
-  const DrinksCard({Key key, this.drinkType}) : super(key: key);
+  const DrinksCard({this.drinkType});
 
   final DrinkType drinkType;
 

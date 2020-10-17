@@ -4,19 +4,6 @@
 
 import 'package:flutter/material.dart';
 
-class MyTabbedApp3 extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Tabbed Demo 3',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: MyThirdTabbedPage(),
-    );
-  }
-}
-
 class MyThirdTabbedPage extends StatefulWidget {
   @override
   _MyThirdTabbedPageState createState() => _MyThirdTabbedPageState();

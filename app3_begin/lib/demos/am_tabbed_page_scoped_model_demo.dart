@@ -11,22 +11,10 @@ import 'package:scoped_model/scoped_model.dart';
 import 'package:flutter/material.dart';
 
 class MyTabbedScopedModelApp1 extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Lab3 Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.lightGreen,
-      ),
-      home: HomePage(title: 'Tabbed and Scoped Model Demo'),
-    );
-  }
-}
-
-class HomePage extends StatelessWidget {
-  const HomePage({this.title});
+  const MyTabbedScopedModelApp1({this.title, this.color});
 
   final String title;
+  final Color color;
 
   @override
   Widget build(BuildContext context) {
@@ -38,13 +26,13 @@ class HomePage extends StatelessWidget {
       //will instanciate an object from MyModel class.
       model: MyModel(),
       child: Scaffold(
-        backgroundColor: Colors.lightGreen,
+        backgroundColor: color,
         appBar: AppBar(
           title: Text(title),
         ),
         body: Column(
           children: <Widget>[
-            NumbersCarousel(),
+            NumbersCarousel(color: color),
             NumbersList(),
           ],
         ),
@@ -123,7 +111,7 @@ class NumbersList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScopedModelDescendant<MyModel>(
-      builder: (context, _, model) {
+      builder: (context, child, model) {
         return Expanded(
           child: GridView.count(
             crossAxisCount: 2,
@@ -141,6 +129,8 @@ class NumbersList extends StatelessWidget {
 }
 
 class NumbersCarousel extends StatefulWidget {
+  NumbersCarousel({this.color});
+  final Colors color;
   @override
   _NumbersCarouselState createState() => _NumbersCarouselState();
 }
@@ -148,6 +138,7 @@ class NumbersCarousel extends StatefulWidget {
 class _NumbersCarouselState extends State<NumbersCarousel>
     with SingleTickerProviderStateMixin {
   TabController _tabController;
+  Colors color = Widget.color;
 
   @override
   void initState() {
@@ -184,7 +175,7 @@ class _NumbersCarouselState extends State<NumbersCarousel>
         decoration: BoxDecoration(
           border: Border.all(
             width: 4.0,
-            color: Colors.black,
+            color: color,
           ),
         ),
         child: Stack(

@@ -10,8 +10,8 @@
 import 'package:scoped_model/scoped_model.dart';
 import 'package:flutter/material.dart';
 
-class MyScopeModelApp1 extends StatelessWidget {
-  const MyScopeModelApp1({@required this.myModel});
+class MyScopedModelApp1 extends StatelessWidget {
+  const MyScopedModelApp1({@required this.myModel});
 
   final MyCounterModel myModel;
 
@@ -21,12 +21,48 @@ class MyScopeModelApp1 extends StatelessWidget {
     // will provide the MyCounterModel to all children in the app that request it
     // using a ScopedModelDescendant.
     return ScopedModel<MyCounterModel>(
-      model: myModel,
-      child: MaterialApp(
-        title: 'Scoped Model Demo',
-        home: CounterHome('Scoped Model Demo'),
-      ),
-    );
+        model: myModel,
+        child: Scaffold(
+          appBar: AppBar(
+            title: Text('Scoped Model App 1'),
+          ),
+          body: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Text('You have pushed the button this many times:'),
+                //Create a ScopedModelDescendant. This widget will get the
+                //MyCounterModel from the nearest parent ScopedModel<CounterModel>
+                //model property.
+                //It will hand that MyCounterModel to our builder method,
+                //via the model parm of the anonymous funciton, and
+                //rebuild any time the MyCounterModel changes (i.e. after we
+                //notifyListeners in the Model).
+                ScopedModelDescendant<MyCounterModel>(
+                  builder: (contextParm, childParm, modelParm) {
+                    return Text(
+                      modelParm.counter.toString(),
+                      style: Theme.of(context).textTheme.headline4,
+                    );
+                  },
+                ),
+              ],
+            ),
+          ),
+          // Use the ScopedModelDescendant again in order to use the increment
+          // method from the MyCounterModel
+          floatingActionButton: ScopedModelDescendant<MyCounterModel>(
+            builder: (contextParm, childParm, modelParm) {
+              return FloatingActionButton(
+                //Address of the model.increment method from the
+                //MyCounterModel class.
+                onPressed: modelParm.increment,
+                tooltip: 'Increment',
+                child: Icon(Icons.add),
+              );
+            },
+          ),
+        ));
   }
 }
 
@@ -49,53 +85,53 @@ class MyCounterModel extends Model {
   }
 }
 
-class CounterHome extends StatelessWidget {
-  final String title;
+// class CounterHome extends StatelessWidget {
+//   CounterHome(this.title);
 
-  CounterHome(this.title);
+//   final String title;
 
-  @override
-  Widget build(BuildContext context1) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text('You have pushed the button this many times:'),
-            //Create a ScopedModelDescendant. This widget will get the
-            //MyCounterModel from the nearest parent ScopedModel<CounterModel>
-            //model property.
-            //It will hand that MyCounterModel to our builder method,
-            //via the model parm of the anonymous funciton, and
-            //rebuild any time the MyCounterModel changes (i.e. after we
-            //notifyListeners in the Model).
-            ScopedModelDescendant<MyCounterModel>(
-              builder: (contextParm, childParm, modelParm) {
-                return Text(
-                  modelParm.counter.toString(),
-                  style: Theme.of(context1).textTheme.headline4,
-                );
-              },
-            ),
-          ],
-        ),
-      ),
-      // Use the ScopedModelDescendant again in order to use the increment
-      // method from the MyCounterModel
-      floatingActionButton: ScopedModelDescendant<MyCounterModel>(
-        builder: (contextParm, childParm, modelParm) {
-          return FloatingActionButton(
-            //Address of the model.increment method from the
-            //MyCounterModel class.
-            onPressed: modelParm.increment,
-            tooltip: 'Increment',
-            child: Icon(Icons.add),
-          );
-        },
-      ),
-    );
-  }
-}
+//   @override
+//   Widget build(BuildContext context1) {
+//     return Scaffold(
+//       appBar: AppBar(
+//         title: Text(title),
+//       ),
+//       body: Center(
+//         child: Column(
+//           mainAxisAlignment: MainAxisAlignment.center,
+//           children: <Widget>[
+//             Text('You have pushed the button this many times:'),
+//             //Create a ScopedModelDescendant. This widget will get the
+//             //MyCounterModel from the nearest parent ScopedModel<CounterModel>
+//             //model property.
+//             //It will hand that MyCounterModel to our builder method,
+//             //via the model parm of the anonymous funciton, and
+//             //rebuild any time the MyCounterModel changes (i.e. after we
+//             //notifyListeners in the Model).
+//             ScopedModelDescendant<MyCounterModel>(
+//               builder: (contextParm, childParm, modelParm) {
+//                 return Text(
+//                   modelParm.counter.toString(),
+//                   style: Theme.of(context1).textTheme.headline4,
+//                 );
+//               },
+//             ),
+//           ],
+//         ),
+//       ),
+//       // Use the ScopedModelDescendant again in order to use the increment
+//       // method from the MyCounterModel
+//       floatingActionButton: ScopedModelDescendant<MyCounterModel>(
+//         builder: (contextParm, childParm, modelParm) {
+//           return FloatingActionButton(
+//             //Address of the model.increment method from the
+//             //MyCounterModel class.
+//             onPressed: modelParm.increment,
+//             tooltip: 'Increment',
+//             child: Icon(Icons.add),
+//           );
+//         },
+//       ),
+//     );
+//   }
+// }
