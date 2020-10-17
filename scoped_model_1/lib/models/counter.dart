@@ -1,3 +1,3 @@
-class Counter {
+class MyCounter {
   int count = 1;
 }

@@ -1,10 +1,10 @@
 import 'package:scoped_model/scoped_model.dart';
 import '../models/counter.dart';
 
-class ScopedCounter extends Model {
-  Counter counter1 = Counter();
-  Counter counter2 = Counter();
-  Counter counter3 = Counter();
+class MyScopedCounter extends Model {
+  MyCounter counter1 = MyCounter();
+  MyCounter counter2 = MyCounter();
+  MyCounter counter3 = MyCounter();
 
   increment() {
     counter1.count += 1;

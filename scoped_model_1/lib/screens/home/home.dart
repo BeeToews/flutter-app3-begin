@@ -6,12 +6,12 @@ import 'widget2.dart';
 import 'widget3.dart';
 
 class MyHomePage extends StatelessWidget {
-  final ScopedCounter scopedCounter = ScopedCounter();
+  final MyScopedCounter myScopedCounter = MyScopedCounter();
 
   @override
   Widget build(BuildContext context) {
-    return ScopedModel<ScopedCounter>(
-      model: scopedCounter,
+    return ScopedModel<MyScopedCounter>(
+      model: myScopedCounter,
       child: Scaffold(
         appBar: AppBar(
           title: Text('Hello World with Scoped Model'),
@@ -27,7 +27,7 @@ class MyHomePage extends StatelessWidget {
           ),
         ),
         floatingActionButton: FloatingActionButton(
-          onPressed: () => scopedCounter.increment(),
+          onPressed: () => myScopedCounter.increment(),
           tooltip: 'Increment',
           child: Icon(Icons.add),
         ),

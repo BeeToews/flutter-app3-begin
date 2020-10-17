@@ -13,9 +13,9 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  final List<ListItem> items;
+  MyApp({@required this.items});
 
-  MyApp({Key key, @required this.items}) : super(key: key);
+  final List<ListItem> items;
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +39,7 @@ class MyApp extends StatelessWidget {
               return ListTile(
                 title: Text(
                   item.heading,
-                  style: Theme.of(context).textTheme.headline,
+                  style: Theme.of(context).textTheme.headline4,
                 ),
               );
             } else if (item is MessageItem) {
@@ -60,15 +60,15 @@ abstract class ListItem {}
 
 // A ListItem that contains data to display a heading.
 class HeadingItem implements ListItem {
-  final String heading;
-
   HeadingItem(this.heading);
+
+  final String heading;
 }
 
 // A ListItem that contains data to display a message.
 class MessageItem implements ListItem {
+  MessageItem(this.sender, this.body);
+
   final String sender;
   final String body;
-
-  MessageItem(this.sender, this.body);
 }

@@ -5,8 +5,8 @@ import '../../scoped_models/scoped_counters.dart';
 class Widget2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return ScopedModelDescendant<ScopedCounter>(
-        builder: (context, child, model) =>
-            Text('Widget2 counter is ${model.counter2.count}'));
+    return ScopedModelDescendant<MyScopedCounter>(
+        builder: (context, child, myModel) =>
+            Text('Widget2 counter is ${myModel.counter2.count}'));
   }
 }

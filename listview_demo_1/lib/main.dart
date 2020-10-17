@@ -9,7 +9,7 @@ class App extends StatefulWidget {
 }
 
 class _AppState extends State<App> {
-  List<String> litems = [];
+  List<String> listItems = [];
   final TextEditingController eCtrl = TextEditingController();
   @override
   Widget build(BuildContext ctxt) {
@@ -22,17 +22,25 @@ class _AppState extends State<App> {
             children: <Widget>[
               TextField(
                 controller: eCtrl,
+                style: TextStyle(
+                  fontSize: 30,
+                ),
                 onSubmitted: (text) {
-                  litems.add(text);
+                  listItems.add(text);
                   eCtrl.clear();
                   setState(() {});
                 },
               ),
               Expanded(
                   child: ListView.builder(
-                      itemCount: litems.length,
+                      itemCount: listItems.length,
                       itemBuilder: (BuildContext ctxt, int index) {
-                        return Text(litems[index]);
+                        return Text(
+                          listItems[index],
+                          style: TextStyle(
+                            fontSize: 30,
+                          ),
+                        );
                       }))
             ],
           )),
