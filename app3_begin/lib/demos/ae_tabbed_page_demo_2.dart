@@ -17,6 +17,10 @@
 import 'package:flutter/material.dart';
 
 class MySecondTabbedPage extends StatefulWidget {
+  MySecondTabbedPage({this.title, this.color});
+
+  String title;
+  Color color;
   @override
   _MySecondTabbedPageState createState() => _MySecondTabbedPageState();
 }

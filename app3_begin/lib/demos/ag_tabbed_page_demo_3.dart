@@ -5,6 +5,10 @@
 import 'package:flutter/material.dart';
 
 class MyThirdTabbedPage extends StatefulWidget {
+  MyThirdTabbedPage({this.title, this.color});
+
+  String title;
+  Color color;
   @override
   _MyThirdTabbedPageState createState() => _MyThirdTabbedPageState();
 }

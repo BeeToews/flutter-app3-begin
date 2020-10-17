@@ -11,7 +11,10 @@ import 'package:scoped_model/scoped_model.dart';
 import 'package:flutter/material.dart';
 
 class MyScopedModelApp1 extends StatelessWidget {
-  const MyScopedModelApp1({@required this.myModel});
+  MyScopedModelApp1({@required this.myModel, this.title, this.color});
+
+  String title;
+  Color color;
 
   final MyCounterModel myModel;
 

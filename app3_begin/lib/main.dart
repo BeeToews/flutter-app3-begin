@@ -13,20 +13,34 @@ void main() => runApp(
     );
 
 class MyTabbedScopedModelApps extends StatelessWidget {
+  final Color themeColor = Colors.amber;
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Tabbed with Scoped Model Demos',
       theme: ThemeData(
-        primarySwatch: Colors.amber,
+        primarySwatch: themeColor,
       ),
-      //home: MyFirstTabbedPage(),
-      //home: MySecondTabbedPage(),
-      //home: MyThirdTabbedPage(),
-      //home: MyScopedModelApp1(myModel: MyCounterModel()),
+      // home: MyFirstTabbedPage(
+      //   title: 'Tabbed Page 1 Demo',
+      //   color: themeColor,
+      // ),
+      // home: MySecondTabbedPage(
+      //   title: 'Tabbed Page 2 Demo',
+      //   color: themeColor,
+      // ),
+      // home: MyThirdTabbedPage(
+      //   title: 'Tabbed Page 3 Demo',
+      //   color: themeColor,
+      // ),
+      // home: MyScopedModelApp1(
+      //   myModel: MyCounterModel(),
+      //   title: 'Scoped Model App 1 Demo',
+      //   color: themeColor,
+      // ),
       home: MyTabbedScopedModelApp1(
-        title: 'Tabbed Scoped Model App 1',
-        color: Colors.amber,
+        title: 'Tabbed Scoped Model App 1 Demo',
+        color: themeColor,
       ),
     );
   }

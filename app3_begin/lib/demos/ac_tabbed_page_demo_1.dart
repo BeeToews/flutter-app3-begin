@@ -7,6 +7,11 @@
 import 'package:flutter/material.dart';
 
 class MyFirstTabbedPage extends StatefulWidget {
+  MyFirstTabbedPage({this.title, this.color});
+
+  String title;
+  Color color;
+
   @override
   _MyFirstTabbedPageState createState() => _MyFirstTabbedPageState();
 }
