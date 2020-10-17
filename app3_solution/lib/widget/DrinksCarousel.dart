@@ -1,6 +1,6 @@
-import 'package:lab3/widget/DrinksCard.dart';
 import 'package:flutter/material.dart';
 import 'package:scoped_model/scoped_model.dart';
+import 'package:lab3/widget/DrinksCard.dart';
 import 'package:lab3/model/DrinksListModel.dart';
 
 class DrinksCarousel extends StatefulWidget {
@@ -102,7 +102,7 @@ class _DrinksCarouselState extends State<DrinksCarousel>
               child: IconButton(
                 icon: Icon(
                   Icons.arrow_back,
-                  color: Colors.white,
+                  color: Colors.blue,
                   size: 36,
                 ),
                 onPressed: () {
@@ -115,7 +115,7 @@ class _DrinksCarouselState extends State<DrinksCarousel>
               child: IconButton(
                 icon: Icon(
                   Icons.arrow_forward,
-                  color: Colors.white,
+                  color: Colors.blue,
                   size: 36,
                 ),
                 onPressed: () {
