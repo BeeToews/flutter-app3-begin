@@ -130,7 +130,9 @@ class NumbersList extends StatelessWidget {
 
 class NumbersCarousel extends StatefulWidget {
   NumbersCarousel({this.color});
-  final Colors color;
+
+  final Color color;
+
   @override
   _NumbersCarouselState createState() => _NumbersCarouselState();
 }
@@ -138,7 +140,6 @@ class NumbersCarousel extends StatefulWidget {
 class _NumbersCarouselState extends State<NumbersCarousel>
     with SingleTickerProviderStateMixin {
   TabController _tabController;
-  Colors color = Widget.color;
 
   @override
   void initState() {
@@ -168,6 +169,8 @@ class _NumbersCarouselState extends State<NumbersCarousel>
 
   @override
   Widget build(BuildContext context) {
+    Color myColor = widget.color;
+
     return SizedBox(
       height: 250.0,
       width: double.infinity,
@@ -175,7 +178,7 @@ class _NumbersCarouselState extends State<NumbersCarousel>
         decoration: BoxDecoration(
           border: Border.all(
             width: 4.0,
-            color: color,
+            color: myColor,
           ),
         ),
         child: Stack(
@@ -229,7 +232,7 @@ class _NumbersCarouselState extends State<NumbersCarousel>
               child: IconButton(
                 icon: Icon(
                   Icons.arrow_back,
-                  color: Colors.lightGreen,
+                  color: myColor,
                   size: 36,
                 ),
                 onPressed: () {
@@ -242,7 +245,7 @@ class _NumbersCarouselState extends State<NumbersCarousel>
               child: IconButton(
                 icon: Icon(
                   Icons.arrow_forward,
-                  color: Colors.lightGreen,
+                  color: myColor,
                   size: 36,
                 ),
                 onPressed: () {
