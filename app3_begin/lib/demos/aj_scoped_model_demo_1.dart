@@ -13,10 +13,9 @@ import 'package:flutter/material.dart';
 class MyScopedModelApp1 extends StatelessWidget {
   MyScopedModelApp1({@required this.myModel, this.title, this.color});
 
-  String title;
-  Color color;
-
   final MyCounterModel myModel;
+  final String title;
+  final Color color;
 
   @override
   Widget build(BuildContext context) {
@@ -26,8 +25,9 @@ class MyScopedModelApp1 extends StatelessWidget {
     return ScopedModel<MyCounterModel>(
         model: myModel,
         child: Scaffold(
+          backgroundColor: color,
           appBar: AppBar(
-            title: Text('Scoped Model App 1'),
+            title: Text(title),
           ),
           body: Center(
             child: Column(
@@ -70,7 +70,6 @@ class MyScopedModelApp1 extends StatelessWidget {
 }
 
 // Start by creating a class that has a counter and a method to increment it.
-//
 // Note: It must inheirit from Model.
 class MyCounterModel extends Model {
   //Private field.
@@ -87,54 +86,3 @@ class MyCounterModel extends Model {
     notifyListeners();
   }
 }
-
-// class CounterHome extends StatelessWidget {
-//   CounterHome(this.title);
-
-//   final String title;
-
-//   @override
-//   Widget build(BuildContext context1) {
-//     return Scaffold(
-//       appBar: AppBar(
-//         title: Text(title),
-//       ),
-//       body: Center(
-//         child: Column(
-//           mainAxisAlignment: MainAxisAlignment.center,
-//           children: <Widget>[
-//             Text('You have pushed the button this many times:'),
-//             //Create a ScopedModelDescendant. This widget will get the
-//             //MyCounterModel from the nearest parent ScopedModel<CounterModel>
-//             //model property.
-//             //It will hand that MyCounterModel to our builder method,
-//             //via the model parm of the anonymous funciton, and
-//             //rebuild any time the MyCounterModel changes (i.e. after we
-//             //notifyListeners in the Model).
-//             ScopedModelDescendant<MyCounterModel>(
-//               builder: (contextParm, childParm, modelParm) {
-//                 return Text(
-//                   modelParm.counter.toString(),
-//                   style: Theme.of(context1).textTheme.headline4,
-//                 );
-//               },
-//             ),
-//           ],
-//         ),
-//       ),
-//       // Use the ScopedModelDescendant again in order to use the increment
-//       // method from the MyCounterModel
-//       floatingActionButton: ScopedModelDescendant<MyCounterModel>(
-//         builder: (contextParm, childParm, modelParm) {
-//           return FloatingActionButton(
-//             //Address of the model.increment method from the
-//             //MyCounterModel class.
-//             onPressed: modelParm.increment,
-//             tooltip: 'Increment',
-//             child: Icon(Icons.add),
-//           );
-//         },
-//       ),
-//     );
-//   }
-// }

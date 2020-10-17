@@ -1,6 +1,7 @@
 //This app demonstrates the TabPageSelector widget,
 //in conjuntion with the TabController and TabBarView.
 //No TabBar on this app.
+//Also how to pass parms down the stateful widget tree.
 
 import 'package:flutter/material.dart';
 
@@ -39,9 +40,14 @@ class _MyThirdTabbedPageState extends State<MyThirdTabbedPage>
 
   @override
   Widget build(BuildContext context) {
+    String myTitle = widget.title;
+    Color myColor = widget.color;
+
     return Scaffold(
+      backgroundColor: myColor,
       appBar: AppBar(
-        title: const Text('AppBar Bottom Widget'),
+        backgroundColor: myColor,
+        title: Text(myTitle),
         leading: IconButton(
           tooltip: 'Previous choice',
           icon: const Icon(Icons.arrow_back),
@@ -63,7 +69,7 @@ class _MyThirdTabbedPageState extends State<MyThirdTabbedPage>
           preferredSize: const Size.fromHeight(48.0),
           child: Theme(
             data: Theme.of(context).copyWith(
-              accentColor: Colors.white,
+              accentColor: myColor,
             ),
             child: Container(
               height: 48.0,

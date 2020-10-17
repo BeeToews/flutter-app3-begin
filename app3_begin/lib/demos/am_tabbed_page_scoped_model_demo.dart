@@ -1,5 +1,6 @@
 //This app demonstrates a working carousel and GridView.
 //It also shows property explicit getters and setters.
+//Also how to pass parms down the stateful widget tree.
 
 //Dart getters and setters by geekforgeeks.
 //https://www.geeksforgeeks.org/getter-and-setter-methods-in-dart/

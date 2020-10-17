@@ -21,10 +21,10 @@ class MyTabbedScopedModelApps extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: themeColor,
       ),
-      home: MyFirstTabbedPage(
-        title: 'Tabbed Page 1 Demo',
-        color: themeColor,
-      ),
+      // home: MyFirstTabbedPage(
+      //   title: 'Tabbed Page 1 Demo',
+      //   color: themeColor,
+      // ),
       // home: MySecondTabbedPage(
       //   title: 'Tabbed Page 2 Demo',
       //   color: themeColor,
@@ -38,10 +38,10 @@ class MyTabbedScopedModelApps extends StatelessWidget {
       //   title: 'Scoped Model App 1 Demo',
       //   color: themeColor,
       // ),
-      // home: MyTabbedScopedModelApp1(
-      //   title: 'Tabbed Scoped Model App 1 Demo',
-      //   color: themeColor,
-      // ),
+      home: MyTabbedScopedModelApp1(
+        title: 'Tabbed Scoped Model App 1 Demo',
+        color: themeColor,
+      ),
     );
   }
 }
