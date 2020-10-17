@@ -14,7 +14,7 @@ class MyAppLab4 extends StatelessWidget {
       theme: new ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: new MyHomePage(title: 'Lab4-Stock Price App'),
+      home: new MyHomePage(title: 'App4-Stock Price App'),
     );
   }
 }
