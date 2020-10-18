@@ -8,14 +8,14 @@ import 'package:coffee_store_app/demos/ak_scoped_model_demo_2.dart';
 import 'package:coffee_store_app/demos/am_tabbed_page_scoped_model_demo.dart';
 
 void main() => runApp(
-      MyTabbedScopedModelApps(),
+      MyTabbedScopedModelDemos(),
     );
 
 // void main() => runApp(
 //       MyApp3(),
 //     );
 
-class MyTabbedScopedModelApps extends StatelessWidget {
+class MyTabbedScopedModelDemos extends StatelessWidget {
   final Color themeColor = Color(0xFF808366);
   @override
   Widget build(BuildContext context) {
@@ -26,34 +26,34 @@ class MyTabbedScopedModelApps extends StatelessWidget {
         scaffoldBackgroundColor: themeColor,
       ),
 
-      // home: MyFirstTabbedPage(
-      //   title: 'Tabbed Page 1 Demo',
-      //   color: themeColor,
-      // ),
-
-      // home: MySecondTabbedPage(
-      //   title: 'Tabbed Page 2 Demo',
-      //   color: themeColor,
-      // ),
-
-      // home: MyThirdTabbedPage(
-      //   title: 'Tabbed Page 3 Demo',
-      //   color: themeColor,
-      // ),
-
-      // home: MyScopedModelApp1(
-      //   myModel: MyCounterModel(),
-      //   title: 'Scoped Model App 1 Demo',
-      //   color: themeColor,
-      // ),
-
-      home: MyScopedModelApp2(
-        title: 'Scoped Model App 2 Demo',
+      home: MyTabbedDemo1(
+        title: 'Tabbed Demo 1',
         color: themeColor,
       ),
 
-      // home: MyTabbedScopedModelApp1(
-      //   title: 'Tabbed Scoped Model App 1 Demo',
+      // home: MyTabbedDemo2(
+      //   title: 'Tabbed Demo 2',
+      //   color: themeColor,
+      // ),
+
+      // home: MyTabbedDemo3(
+      //   title: 'Tabbed Demo 3',
+      //   color: themeColor,
+      // ),
+
+      // home: MyScopedModelDemo1(
+      //   myModel: MyCounterModel(),
+      //   title: 'Scoped Model Demo 1',
+      //   color: themeColor,
+      // ),
+
+      // home: MyScopedModelDemo2(
+      //   title: 'Scoped Model Demo 2',
+      //   color: themeColor,
+      // ),
+
+      // home: MyTabbedScopedModelDemo(
+      //   title: 'Tabbed Scoped Model Demo',
       //   color: themeColor,
       // ),
     );

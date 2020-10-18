@@ -7,17 +7,17 @@
 
 import 'package:flutter/material.dart';
 
-class MyFirstTabbedPage extends StatefulWidget {
-  MyFirstTabbedPage({this.title, this.color});
+class MyTabbedDemo1 extends StatefulWidget {
+  MyTabbedDemo1({this.title, this.color});
 
   final String title;
   final Color color;
 
   @override
-  _MyFirstTabbedPageState createState() => _MyFirstTabbedPageState();
+  _MyTabbedDemo1State createState() => _MyTabbedDemo1State();
 }
 
-class _MyFirstTabbedPageState extends State<MyFirstTabbedPage> {
+class _MyTabbedDemo1State extends State<MyTabbedDemo1> {
   @override
   Widget build(BuildContext context) {
     String myTitle = widget.title;

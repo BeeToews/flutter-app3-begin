@@ -19,8 +19,8 @@ class MyScopedCounter extends Model {
   }
 }
 
-class MyScopedModelApp2 extends StatelessWidget {
-  MyScopedModelApp2({this.title, this.color});
+class MyScopedModelDemo2 extends StatelessWidget {
+  MyScopedModelDemo2({this.title, this.color});
 
   final String title;
   final Color color;

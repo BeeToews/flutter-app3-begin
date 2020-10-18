@@ -17,16 +17,16 @@
 
 import 'package:flutter/material.dart';
 
-class MySecondTabbedPage extends StatefulWidget {
-  MySecondTabbedPage({this.title, this.color});
+class MyTabbedDemo2 extends StatefulWidget {
+  MyTabbedDemo2({this.title, this.color});
 
-  String title;
-  Color color;
+  final String title;
+  final Color color;
   @override
-  _MySecondTabbedPageState createState() => _MySecondTabbedPageState();
+  _MyTabbedDemo2State createState() => _MyTabbedDemo2State();
 }
 
-class _MySecondTabbedPageState extends State<MySecondTabbedPage>
+class _MyTabbedDemo2State extends State<MyTabbedDemo2>
     with SingleTickerProviderStateMixin {
   final List<Tab> myTabs = <Tab>[
     Tab(text: 'LEFT'),

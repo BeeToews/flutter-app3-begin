@@ -5,16 +5,16 @@
 
 import 'package:flutter/material.dart';
 
-class MyThirdTabbedPage extends StatefulWidget {
-  MyThirdTabbedPage({this.title, this.color});
+class MyTabbedDemo3 extends StatefulWidget {
+  MyTabbedDemo3({this.title, this.color});
 
-  String title;
-  Color color;
+  final String title;
+  final Color color;
   @override
-  _MyThirdTabbedPageState createState() => _MyThirdTabbedPageState();
+  _MyTabbedDemo3State createState() => _MyTabbedDemo3State();
 }
 
-class _MyThirdTabbedPageState extends State<MyThirdTabbedPage>
+class _MyTabbedDemo3State extends State<MyTabbedDemo3>
     with SingleTickerProviderStateMixin {
   TabController _tabController;
 

@@ -11,8 +11,8 @@
 import 'package:flutter/material.dart';
 import 'package:scoped_model/scoped_model.dart';
 
-class MyTabbedScopedModelApp1 extends StatelessWidget {
-  const MyTabbedScopedModelApp1({this.title, this.color});
+class MyTabbedScopedModelDemo extends StatelessWidget {
+  const MyTabbedScopedModelDemo({this.title, this.color});
 
   final String title;
   final Color color;
