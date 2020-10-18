@@ -27,7 +27,7 @@ class MyTabbedScopedModelApp1 extends StatelessWidget {
       //will instanciate an object from MyModel class.
       model: MyModel(),
       child: Scaffold(
-        backgroundColor: color,
+        //backgroundColor: color,
         appBar: AppBar(
           title: Text(title),
         ),

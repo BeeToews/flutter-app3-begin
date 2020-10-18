@@ -11,14 +11,21 @@ void main() => runApp(
     );
 
 class MyTabbedScopedModelApps extends StatelessWidget {
-  final Color themeColor = Colors.amber;
+  final Color themeColor = Color(0xFFFF8366);
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Tabbed with Scoped Model Demos',
-      theme: ThemeData(
-        primarySwatch: themeColor,
+      theme: ThemeData.light().copyWith(
+        primaryColor: themeColor,
+        //primaryColor: Color(0xFF0B1034),
+
+        //the 0xFF is the transparency (opaqe),
+        //then 0B Red, 10 Green, 34 Blue
+        scaffoldBackgroundColor: themeColor,
+        //scaffoldBackgroundColor: Color(0xFF0B1034),
       ),
+
       // home: MyFirstTabbedPage(
       //   title: 'Tabbed Page 1 Demo',
       //   color: themeColor,
