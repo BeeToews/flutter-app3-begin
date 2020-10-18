@@ -6,19 +6,19 @@ class MyApp3 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Lab3 App',
+      title: 'App3',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: StoreHomePage(title: 'Store Home'),
+      home: StoreHomePage(title: 'App3 Tab Controls with ScopedModel'),
     );
   }
 }
 
 class StoreHomePage extends StatelessWidget {
-  final String title;
+  const StoreHomePage({this.title});
 
-  const StoreHomePage({Key key, this.title}) : super(key: key);
+  final String title;
 
   @override
   Widget build(BuildContext context) {

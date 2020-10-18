@@ -156,13 +156,11 @@ class _NumbersCarouselState extends State<NumbersCarousel>
 
   void _changeImage({int delta}) {
     var newTabIndex = _tabController.index + delta;
-    print('begin $newTabIndex');
     if (newTabIndex >= nums.length) {
       newTabIndex = 0;
     } else if (newTabIndex < 0) {
       newTabIndex = nums.length - 1;
     }
-    print('end $newTabIndex');
     _tabController.animateTo(
       newTabIndex,
     );
@@ -186,7 +184,7 @@ class _NumbersCarouselState extends State<NumbersCarousel>
           children: <Widget>[
             ScopedModelDescendant<MyModel>(
               rebuildOnChange: false,
-              builder: (context, _, model) {
+              builder: (context, child, myModel) {
                 return TabBarView(
                   controller: _tabController,
                   children: nums.map((numberType) {
@@ -207,7 +205,7 @@ class _NumbersCarouselState extends State<NumbersCarousel>
                         //type is automatically passed as an argument
                         //into the properties parm.
                         //This happens because of the key word set.
-                        model.chosenNumber = type;
+                        myModel.chosenNumber = type;
                       },
                       child: NumbersCard(
                         instantsNumber: numberType,
