@@ -6,8 +6,12 @@ import 'package:coffee_store_app/demos/ag_tabbed_page_demo_3.dart';
 import 'package:coffee_store_app/demos/aj_scoped_model_demo_1.dart';
 import 'package:coffee_store_app/demos/am_tabbed_page_scoped_model_demo.dart';
 
+// void main() => runApp(
+//       MyTabbedScopedModelApps(),
+//     );
+
 void main() => runApp(
-      MyTabbedScopedModelApps(),
+      MyApp3(),
     );
 
 class MyTabbedScopedModelApps extends StatelessWidget {
