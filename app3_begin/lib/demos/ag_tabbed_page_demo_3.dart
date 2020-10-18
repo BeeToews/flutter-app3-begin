@@ -34,7 +34,7 @@ class _MyThirdTabbedPageState extends State<MyThirdTabbedPage>
   void _nextPage(int delta) {
     final int newIndex = _tabController.index + delta;
 
-    //if (newIndex < 0 || newIndex >= _tabController.length) return;
+    if (newIndex < 0 || newIndex >= _tabController.length) return;
     _tabController.animateTo(newIndex);
   }
 
@@ -76,6 +76,8 @@ class _MyThirdTabbedPageState extends State<MyThirdTabbedPage>
               alignment: Alignment.center,
               child: TabPageSelector(
                 controller: _tabController,
+                color: Colors.white,
+                selectedColor: Colors.black,
               ),
             ),
           ),

@@ -22,6 +22,7 @@ class _MyFirstTabbedPageState extends State<MyFirstTabbedPage> {
   Widget build(BuildContext context) {
     String myTitle = widget.title;
     Color myColor = widget.color;
+
     return DefaultTabController(
       length: 3,
       child: Scaffold(
@@ -29,6 +30,7 @@ class _MyFirstTabbedPageState extends State<MyFirstTabbedPage> {
         appBar: AppBar(
           title: Text(myTitle),
           bottom: TabBar(
+            indicatorColor: Colors.white,
             //The tabs property must be a list<Tab>.
             tabs: [
               Tab(text: "Car"),
@@ -41,9 +43,21 @@ class _MyFirstTabbedPageState extends State<MyFirstTabbedPage> {
           //However many list elements are in the TabBar
           //you must have exactly the same amount in the TabBarView.
           children: [
-            Icon(Icons.directions_car),
-            Icon(Icons.directions_transit),
-            Icon(Icons.directions_bike),
+            Icon(
+              Icons.directions_car,
+              color: Colors.white,
+              size: 100,
+            ),
+            Icon(
+              Icons.directions_transit,
+              color: Colors.white,
+              size: 100,
+            ),
+            Icon(
+              Icons.directions_bike,
+              color: Colors.white,
+              size: 100,
+            ),
           ],
         ),
       ),

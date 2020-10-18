@@ -63,6 +63,7 @@ class _MySecondTabbedPageState extends State<MySecondTabbedPage>
         bottom: TabBar(
           //This TabBar uses the TabController.
           controller: _tabController,
+          indicatorColor: Colors.white,
           tabs: myTabs.map((Tab tab) {
             return Text(
               tab.text,
@@ -79,7 +80,10 @@ class _MySecondTabbedPageState extends State<MySecondTabbedPage>
           return Center(
             child: Text(
               'This is the $label tab',
-              style: const TextStyle(fontSize: 36),
+              style: const TextStyle(
+                fontSize: 36,
+                color: Colors.white,
+              ),
             ),
           );
         }).toList(),

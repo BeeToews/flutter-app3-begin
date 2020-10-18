@@ -19,13 +19,13 @@ class MyScopedModelApp1 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // At the top level of our app, we'll, create a ScopedModel Widget. This
-    // will provide the MyCounterModel to all children in the app that request it
-    // using a ScopedModelDescendant.
+    //At the top level of our app, we'll, create a ScopedModel Widget.
+    //This will provide the MyCounterModel to all
+    //children in the app that request it
+    //using a ScopedModelDescendant.
     return ScopedModel<MyCounterModel>(
         model: myModel,
         child: Scaffold(
-          backgroundColor: color,
           appBar: AppBar(
             title: Text(title),
           ),
@@ -33,7 +33,13 @@ class MyScopedModelApp1 extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Text('You have pushed the button this many times:'),
+                Text(
+                  'Times button has been pushed:',
+                  style: TextStyle(
+                    fontSize: 20,
+                    color: Colors.white,
+                  ),
+                ),
                 //Create a ScopedModelDescendant. This widget will get the
                 //MyCounterModel from the nearest parent ScopedModel<CounterModel>
                 //model property.
@@ -45,7 +51,10 @@ class MyScopedModelApp1 extends StatelessWidget {
                   builder: (contextParm, childParm, modelParm) {
                     return Text(
                       modelParm.counter.toString(),
-                      style: Theme.of(context).textTheme.headline4,
+                      style: TextStyle(
+                        fontSize: 30,
+                        color: Colors.white,
+                      ),
                     );
                   },
                 ),
@@ -57,6 +66,7 @@ class MyScopedModelApp1 extends StatelessWidget {
           floatingActionButton: ScopedModelDescendant<MyCounterModel>(
             builder: (contextParm, childParm, modelParm) {
               return FloatingActionButton(
+                backgroundColor: Colors.black,
                 //Address of the model.increment method from the
                 //MyCounterModel class.
                 onPressed: modelParm.increment,
