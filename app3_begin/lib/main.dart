@@ -3,7 +3,8 @@ import 'package:coffee_store_app/widget/StoreHomePage.dart';
 import 'package:coffee_store_app/demos/ac_tabbed_page_demo_1.dart';
 import 'package:coffee_store_app/demos/ae_tabbed_page_demo_2.dart';
 import 'package:coffee_store_app/demos/ag_tabbed_page_demo_3.dart';
-import 'package:coffee_store_app/demos/aj_scoped_model_demo_1.dart';
+
+import 'package:coffee_store_app/demos/ak_scoped_model_demo_2.dart';
 import 'package:coffee_store_app/demos/am_tabbed_page_scoped_model_demo.dart';
 
 void main() => runApp(
@@ -25,10 +26,10 @@ class MyTabbedScopedModelApps extends StatelessWidget {
         scaffoldBackgroundColor: themeColor,
       ),
 
-      home: MyFirstTabbedPage(
-        title: 'Tabbed Page 1 Demo',
-        color: themeColor,
-      ),
+      // home: MyFirstTabbedPage(
+      //   title: 'Tabbed Page 1 Demo',
+      //   color: themeColor,
+      // ),
 
       // home: MySecondTabbedPage(
       //   title: 'Tabbed Page 2 Demo',
@@ -45,6 +46,11 @@ class MyTabbedScopedModelApps extends StatelessWidget {
       //   title: 'Scoped Model App 1 Demo',
       //   color: themeColor,
       // ),
+
+      home: MyScopedModelApp2(
+        title: 'Scoped Model App 2 Demo',
+        color: themeColor,
+      ),
 
       // home: MyTabbedScopedModelApp1(
       //   title: 'Tabbed Scoped Model App 1 Demo',
