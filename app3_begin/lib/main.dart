@@ -7,13 +7,13 @@ import 'package:coffee_store_app/demos/aj_scoped_model_demo_1.dart';
 import 'package:coffee_store_app/demos/ak_scoped_model_demo_2.dart';
 import 'package:coffee_store_app/demos/am_tabbed_page_scoped_model_demo.dart';
 
-void main() => runApp(
-      MyTabbedScopedModelDemos(),
-    );
-
 // void main() => runApp(
-//       MyApp3(),
+//       MyTabbedScopedModelDemos(),
 //     );
+
+void main() => runApp(
+      MyApp3(),
+    );
 
 class MyTabbedScopedModelDemos extends StatelessWidget {
   final Color themeColor = Color(0xFF808366);
