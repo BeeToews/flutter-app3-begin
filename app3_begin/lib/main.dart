@@ -8,8 +8,6 @@ import 'package:coffee_store_app/demos/am_tabbed_page_scoped_model_demo.dart';
 
 void main() => runApp(
       MyTabbedScopedModelApps(),
-      //MyScopeModelApp1(myModel: MyCounterModel()),
-      //MyTabbedScopedModelApp1(),
     );
 
 class MyTabbedScopedModelApps extends StatelessWidget {
