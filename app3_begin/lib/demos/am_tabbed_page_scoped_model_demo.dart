@@ -8,6 +8,7 @@
 //Dart getters and setters by dart.dev.
 //https://dart.dev/guides/language/language-tour#getters-and-setters
 
+import 'package:coffee_store_app/demos/aj_scoped_model_demo_1.dart';
 import 'package:scoped_model/scoped_model.dart';
 import 'package:flutter/material.dart';
 
@@ -224,6 +225,7 @@ class _NumbersCarouselState extends State<NumbersCarousel>
                 child: TabPageSelector(
                   controller: _tabController,
                   color: Colors.white,
+                  selectedColor: myColor,
                   indicatorSize: 20,
                 ),
               ),

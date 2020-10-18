@@ -18,31 +18,30 @@ class MyTabbedScopedModelApps extends StatelessWidget {
       title: 'Tabbed with Scoped Model Demos',
       theme: ThemeData.light().copyWith(
         primaryColor: themeColor,
-        //primaryColor: Color(0xFF0B1034),
-
-        //the 0xFF is the transparency (opaqe),
-        //then 0B Red, 10 Green, 34 Blue
         scaffoldBackgroundColor: themeColor,
-        //scaffoldBackgroundColor: Color(0xFF0B1034),
       ),
 
       // home: MyFirstTabbedPage(
       //   title: 'Tabbed Page 1 Demo',
       //   color: themeColor,
       // ),
+
       // home: MySecondTabbedPage(
       //   title: 'Tabbed Page 2 Demo',
       //   color: themeColor,
       // ),
+
       // home: MyThirdTabbedPage(
       //   title: 'Tabbed Page 3 Demo',
       //   color: themeColor,
       // ),
+
       // home: MyScopedModelApp1(
       //   myModel: MyCounterModel(),
       //   title: 'Scoped Model App 1 Demo',
       //   color: themeColor,
       // ),
+
       home: MyTabbedScopedModelApp1(
         title: 'Tabbed Scoped Model App 1 Demo',
         color: themeColor,
