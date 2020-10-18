@@ -6,13 +6,13 @@ import 'package:coffee_store_app/demos/ag_tabbed_page_demo_3.dart';
 import 'package:coffee_store_app/demos/aj_scoped_model_demo_1.dart';
 import 'package:coffee_store_app/demos/am_tabbed_page_scoped_model_demo.dart';
 
-// void main() => runApp(
-//       MyTabbedScopedModelApps(),
-//     );
-
 void main() => runApp(
-      MyApp3(),
+      MyTabbedScopedModelApps(),
     );
+
+// void main() => runApp(
+//       MyApp3(),
+//     );
 
 class MyTabbedScopedModelApps extends StatelessWidget {
   final Color themeColor = Color(0xFF808366);
@@ -25,10 +25,10 @@ class MyTabbedScopedModelApps extends StatelessWidget {
         scaffoldBackgroundColor: themeColor,
       ),
 
-      // home: MyFirstTabbedPage(
-      //   title: 'Tabbed Page 1 Demo',
-      //   color: themeColor,
-      // ),
+      home: MyFirstTabbedPage(
+        title: 'Tabbed Page 1 Demo',
+        color: themeColor,
+      ),
 
       // home: MySecondTabbedPage(
       //   title: 'Tabbed Page 2 Demo',
@@ -46,10 +46,10 @@ class MyTabbedScopedModelApps extends StatelessWidget {
       //   color: themeColor,
       // ),
 
-      home: MyTabbedScopedModelApp1(
-        title: 'Tabbed Scoped Model App 1 Demo',
-        color: themeColor,
-      ),
+      // home: MyTabbedScopedModelApp1(
+      //   title: 'Tabbed Scoped Model App 1 Demo',
+      //   color: themeColor,
+      // ),
     );
   }
 }
