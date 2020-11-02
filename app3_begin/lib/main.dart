@@ -5,15 +5,16 @@ import 'package:coffee_store_app/demos/ae_tabbed_page_demo_2.dart';
 import 'package:coffee_store_app/demos/ag_tabbed_page_demo_3.dart';
 import 'package:coffee_store_app/demos/aj_scoped_model_demo_1.dart';
 import 'package:coffee_store_app/demos/ak_scoped_model_demo_2.dart';
+import 'package:coffee_store_app/demos/ay_AlertDialog_SnackBar_Demo.dart';
 import 'package:coffee_store_app/demos/am_tabbed_page_scoped_model_demo.dart';
 
-// void main() => runApp(
-//       MyTabbedScopedModelDemos(),
-//     );
-
 void main() => runApp(
-      MyApp3(),
+      MyTabbedScopedModelDemos(),
     );
+
+// void main() => runApp(
+//       MyApp3(),
+//     );
 
 class MyTabbedScopedModelDemos extends StatelessWidget {
   final Color themeColor = Color(0xFF808366);
@@ -22,23 +23,36 @@ class MyTabbedScopedModelDemos extends StatelessWidget {
     return MaterialApp(
       title: 'Tabbed with Scoped Model Demos',
       theme: ThemeData.light().copyWith(
+        brightness: Brightness.light,
+        accentColor: Colors.cyan[600],
         primaryColor: themeColor,
         scaffoldBackgroundColor: themeColor,
+        indicatorColor: Colors.white,
+        textTheme: TextTheme(
+          bodyText1: TextStyle(
+            color: Colors.white,
+            fontSize: 36,
+          ),
+        ),
+        iconTheme: IconThemeData(
+          color: Colors.white,
+          size: 200,
+        ),
+        primaryIconTheme: IconThemeData(
+          color: Colors.white,
+        ),
       ),
 
-      home: MyTabbedDemo1(
-        title: 'Tabbed Demo 1',
-        color: themeColor,
-      ),
+      // home: MyTabbedDemo1(
+      //   title: 'Tabbed Demo 1',
+      // ),
 
       // home: MyTabbedDemo2(
       //   title: 'Tabbed Demo 2',
-      //   color: themeColor,
       // ),
 
       // home: MyTabbedDemo3(
       //   title: 'Tabbed Demo 3',
-      //   color: themeColor,
       // ),
 
       // home: MyScopedModelDemo1(
@@ -56,6 +70,10 @@ class MyTabbedScopedModelDemos extends StatelessWidget {
       //   title: 'Tabbed Scoped Model Demo',
       //   color: themeColor,
       // ),
+
+      home: AlertDialogAndSnackBarDemo(
+        title: 'AlertDialog and SnackBar Demo',
+      ),
     );
   }
 }
